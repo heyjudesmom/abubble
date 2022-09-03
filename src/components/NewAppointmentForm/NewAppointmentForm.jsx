@@ -4,7 +4,7 @@ import './NewAppointmentForm.css'
 export default function NewAppointmentForm({ handleAddAppt }) {
     const [newAppt, setNewAppt] = useState({
         title: "",
-        date: "",
+        datetime: "",
         duration: "", 
         // tags: [],
     });
@@ -34,8 +34,8 @@ export default function NewAppointmentForm({ handleAddAppt }) {
         <label>Date & Time: </label>
         <input
           type="datetime-local"
-          name="date"
-          value={newAppt.date}
+          name="datetime"
+          value={newAppt.datetime}
           onChange={handleChange}
         />
         <label>Duration: </label>
