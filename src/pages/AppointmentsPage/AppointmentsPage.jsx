@@ -1,20 +1,23 @@
 import "./AppointmentsPage.css"
 import NewAppointmentForm from "../../components/NewAppointmentForm/NewAppointmentForm";
 import AppointmentList from "../../components/AppointmentList/AppointmentList";
+import * as apptsAPI from '../../utilities/appointments-api';
 import { useEffect, useState } from "react";
 
 export default function AppointmentsPage() {
   const [appts, setAppts] = useState([]);
 
   useEffect(function () {
-    const apptsFromStorage = JSON.parse(localStorage.getItem("appts"));
-    if (apptsFromStorage === null) setAppts([]);
-    setAppts(apptsFromStorage);
+    async function getAppts() {
+      const appts = await apptsAPI.getAll();
+      setAppts(appts);
+    }
+    getAppts();
   }, []);
 
-  function addAppt(appt) {
-    setAppts([appts, appt]);
-    localStorage.setItem("appts", JSON.stringify(appts));
+  async function handleAddAppt(apptFormData) {
+    const appt = await apptsAPI.add(apptFormData)
+    setAppts([...appts, appt]);
   }
 
   return (
@@ -22,7 +25,7 @@ export default function AppointmentsPage() {
       <h1>AppointmentsPage</h1>
       <main className="flex-ctr-ctr">
         <AppointmentList appts={appts} />
-        <NewAppointmentForm addAppt={addAppt}/>
+        <NewAppointmentForm handleAddAppt={handleAddAppt}/>
       </main>
     </main>
   );

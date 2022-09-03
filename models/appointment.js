@@ -13,10 +13,10 @@ const apptSchema = new Schema({
     duration: { 
         type: Number 
     }, 
-    tags: [{
-        type: Schema.Types.ObjectId, 
-        ref: 'Tag'
-    }]
+    // tags: [{
+    //     type: Schema.Types.ObjectId, 
+    //     ref: 'Tag'
+    // }]
 });
 
 module.exports = mongoose.model('Appointment', apptSchema);

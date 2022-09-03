@@ -1,30 +1,28 @@
 import { useState } from "react";
 import './NewAppointmentForm.css'
 
-export default function NewAppointmentForm({ addAppt }) {
+export default function NewAppointmentForm({ handleAddAppt }) {
     const [newAppt, setNewAppt] = useState({
         title: "",
         date: "",
-        duration: ""
+        duration: "", 
+        // tags: [],
     });
-    function handleAddAppt(evt) {
+
+    function handleSubmit(evt) {
         evt.preventDefault();
-        addAppt(newAppt);
-        setNewAppt({
-            title: "",
-            date: "",
-            duration: ""
-        });
+        handleAddAppt(newAppt)
     }
 
     function handleChange(evt) {
         const newApptData = { ...newAppt, [evt.target.name]: evt.target.value };
         setNewAppt(newApptData);
+
     }
 
     return (
         <>
-      <form onSubmit={handleAddAppt}>
+      <form onSubmit={handleSubmit}>
         <label>Title: </label>
         <input
           name="title"
@@ -50,8 +48,7 @@ export default function NewAppointmentForm({ addAppt }) {
           required
           min="0"
         />
-        <label> minutes </label>
-        <button>Add Appointment</button>
+        <span></span><button>Add Appointment</button>
       </form>
     </>
     );
