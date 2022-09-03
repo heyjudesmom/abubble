@@ -1,12 +1,12 @@
 const mongoose = require('mongoose');
-const { default: TagsPage } = require('../src/pages/TagsPage/TagsPage');
 const Schema = mongoose.Schema;
 
 const tagSchema = new Schema({
-    name: {
+    text: {
         type: String,
+        unique: true,
         required: true
-      },
+    },
     color: {
         type: String, 
     }, 

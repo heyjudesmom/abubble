@@ -5,7 +5,7 @@ const apptSchema = new Schema({
     title: {
         type: String,
         required: true
-      },
+    },
     datetime: {
         type: String, 
         required: true,

@@ -1,7 +1,10 @@
+import './AppointmentList.css'
 
-export default function AppointmentList() {
-    
+export default function AppointmentList({ appts }) {
+    const arr = appts.map((a, idx) => <div key={idx}>{a.title} {a.datetime} {a.duration} minutes</div>)
     return (
-        <h1>Appointment List</h1>
+        <div className="grid-ctr-list">
+            {arr}
+        </div>
     );
 }
