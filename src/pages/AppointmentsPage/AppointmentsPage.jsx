@@ -4,7 +4,7 @@ import AppointmentList from "../../components/AppointmentList/AppointmentList";
 import * as apptsAPI from '../../utilities/appointments-api';
 import { useEffect, useState } from "react";
 
-export default function AppointmentsPage() {
+export default function AppointmentsPage({tags}) {
   const [appts, setAppts] = useState([]);
 
   useEffect(function () {
@@ -24,8 +24,8 @@ export default function AppointmentsPage() {
     <main>
       <h1>AppointmentsPage</h1>
       <main className="flex-ctr-ctr">
-        <AppointmentList appts={appts} />
-        <NewAppointmentForm handleAddAppt={handleAddAppt}/>
+        <AppointmentList appts={appts} tags={tags}/>
+        <NewAppointmentForm handleAddAppt={handleAddAppt} tags={tags}/>
       </main>
     </main>
   );

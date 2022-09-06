@@ -27,11 +27,10 @@ export default function NewTagForm({ handleAddTag }) {
           value={newTag.text}
           onChange={handleChange}
           required
-          pattern=".{4,}"
         />
         <label>Color</label>
         <input
-          type="text"
+          type="color"
           name="color"
           value={newTag.color}
           onChange={handleChange}

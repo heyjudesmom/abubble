@@ -2,8 +2,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 5vh;
-    padding: 2vh;
+    /* margin: 5vh; */
+    /* padding: 2vh; */
 }
 
 .flex-ctr-ctr > * {

@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { getUser } from '../../utilities/users-service';
+import * as tagsAPI from '../../utilities/tags-api';
 import AuthPage from '../AuthPage/AuthPage';
 import DashboardPage from '../DashboardPage/DashboardPage';
 import AppointmentsPage from '../AppointmentsPage/AppointmentsPage';
@@ -13,6 +14,20 @@ import './App.css';
 
 export default function App() {
   const [user, setUser] = useState(getUser());
+  const [tags, setTags] = useState([]);
+
+  useEffect(function () {
+    async function getTags() {
+      const tags = await tagsAPI.getAll();
+      setTags(tags);
+    }
+    getTags();
+  }, []);
+
+  async function handleAddTag(tagFormData) {
+    const tag = await tagsAPI.add(tagFormData)
+    setTags([...tags, tag]);
+  }
 
   return (
     <main className="App">
@@ -22,11 +37,11 @@ export default function App() {
           <Routes>
             {/* Route components in here */}
             <Route path='/' element={<DashboardPage />} />
-            <Route path='/appointments' element={<AppointmentsPage />} />
+            <Route path='/appointments' element={<AppointmentsPage tags={tags}/>} />
             <Route path='/chores' element={<ChoresPage />} />
             <Route path='/todos' element={<TodosPage />} />
             <Route path='/mealplan' element={<MealPlanPage />} />
-            <Route path='/tags' element={<TagsPage />} />
+            <Route path='/tags' element={<TagsPage tags={tags} handleAddTag={handleAddTag}/>} />
           </Routes>
         </>
         :

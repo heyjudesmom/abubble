@@ -1,13 +1,19 @@
 import { useState } from "react";
-import './NewAppointmentForm.css'
+import './NewAppointmentForm.css';
 
-export default function NewAppointmentForm({ handleAddAppt }) {
-    const [newAppt, setNewAppt] = useState({
+export default function NewAppointmentForm({ handleAddAppt, tags }) {
+  const [selectedTags, setSelectedTags] = useState([]);
+  const [newAppt, setNewAppt] = useState({
         title: "",
         datetime: "",
         duration: "", 
-        // tags: [],
     });
+
+    const options = tags.map(function(t, idx) {
+      return(
+      <option key={idx} value={idx} style={{backgroundColor:t.color}}>{t.text}</option>
+      );
+    })
 
     function handleSubmit(evt) {
         evt.preventDefault();
@@ -15,9 +21,14 @@ export default function NewAppointmentForm({ handleAddAppt }) {
     }
 
     function handleChange(evt) {
-        const newApptData = { ...newAppt, [evt.target.name]: evt.target.value };
-        setNewAppt(newApptData);
+      if (evt.target.name === 'tags') {
+      selectedTags.push(tags[parseInt(evt.target.value)]);
+    }
+      setSelectedTags(selectedTags)
 
+      const newApptData = { ...newAppt, [evt.target.name]: evt.target.value };
+      newApptData.tags = selectedTags;
+      setNewAppt(newApptData);
     }
 
     return (
@@ -48,7 +59,11 @@ export default function NewAppointmentForm({ handleAddAppt }) {
           required
           min="0"
         />
-        <span></span><button>Add Appointment</button>
+        <label>Tags:</label>
+        <select multiple={true} name="tags" value={newAppt.tags} onChange={handleChange}>
+          {options}
+        </select>
+        <span></span><button type="submit">Add Appointment</button>
       </form>
     </>
     );
