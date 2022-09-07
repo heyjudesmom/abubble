@@ -3,8 +3,6 @@ import "./DashboardPage.css"
 
 export default function DashboardPage() {
 
-
-
   return (
     <main className="grid-container-4">
       {/* <div><AppointmentList/></div> */}

@@ -9,3 +9,7 @@ export function getAll() {
 export function add(formData) {
     return sendRequest(BASE_URL, 'POST', formData);
 }
+
+export function deleteAppt(id) {
+    return sendRequest(`${BASE_URL}/${id}`, 'DELETE');
+}

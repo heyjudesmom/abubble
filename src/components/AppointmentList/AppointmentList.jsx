@@ -1,37 +1,17 @@
 import './AppointmentList.css';
+import AppointmentItem from '../AppointmentItem/AppointmentItem';
 
-export default function AppointmentList({ appts, tags }) {
+export default function AppointmentList({ appts, tags, handleDelete}) {
     
-    //make a new, map array of appointments
-    //Filter the tags prop to find the tags that match each appt's tag's id.
-
-    const arr = appts.map(function(a, idx) {
-        // const tagArr = [a.tags].map(function(apptTagId, idx) {
-        //     console.log("apptTagIds",apptTagId)
-        //     tags.filter(function(tag) {
-        //         tag._id === apptTagId
-        //     })
-
-        // });
-        const tagIdArr = a.tags;
-        const tagObjs = tags.filter((t) => tagIdArr.includes(t._id))
-        const divs = tagObjs.map((t) => <button style={{backgroundColor: `${t.color}`}}>
-        {t.text}
-    </button>)
-
+    const apptsArr = appts.map(function(a, idx) {
         return (
-            <div className="page-list-item" key={idx}>
-                <div>{a.title}</div> 
-                <div>{a.datetime}</div> 
-                <div>{a.duration} minutes</div> 
-                <div>{divs}</div>
-                <br/><br/>
-            </div>
-            );
+            <AppointmentItem a={a} key={idx} index={idx} handleDelete={handleDelete} tags={tags}/>
+        );
     })
+    
     return (
         <div className="grid-ctr-list">
-            {arr}
+            {apptsArr}
         </div>
     );
 }

@@ -20,11 +20,18 @@ export default function AppointmentsPage({tags}) {
     setAppts([...appts, appt]);
   }
 
+  async function handleDelete(apptData) {
+    const appt = await apptsAPI.deleteAppt(apptData);
+    console.log(appt)
+    const updatedAppts = appts.filter((a) => a._id !== appt._id)
+    setAppts(updatedAppts);
+  }
+
   return (
     <main>
       <h1>AppointmentsPage</h1>
       <main className="flex-ctr-ctr">
-        <AppointmentList appts={appts} tags={tags}/>
+        <AppointmentList appts={appts} tags={tags} handleDelete={handleDelete}/>
         <NewAppointmentForm handleAddAppt={handleAddAppt} tags={tags}/>
       </main>
     </main>
