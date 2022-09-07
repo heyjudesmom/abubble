@@ -22,7 +22,6 @@ export default function AppointmentsPage({tags}) {
 
   async function handleDelete(apptData) {
     const appt = await apptsAPI.deleteAppt(apptData);
-    console.log(appt)
     const updatedAppts = appts.filter((a) => a._id !== appt._id)
     setAppts(updatedAppts);
   }
