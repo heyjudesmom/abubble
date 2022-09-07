@@ -38,7 +38,7 @@ export default function App() {
             {/* Route components in here */}
             <Route path='/' element={<DashboardPage />} />
             <Route path='/appointments' element={<AppointmentsPage tags={tags}/>} />
-            <Route path='/chores' element={<ChoresPage />} />
+            <Route path='/chores' element={<ChoresPage tags={tags}/>} />
             <Route path='/todos' element={<TodosPage tags={tags}/>} />
             <Route path='/mealplan' element={<MealPlanPage />} />
             <Route path='/tags' element={<TagsPage tags={tags} handleAddTag={handleAddTag}/>} />
