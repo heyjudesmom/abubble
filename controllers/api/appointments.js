@@ -16,8 +16,5 @@ async function getAll(req, res) {
 async function create(req, res) {
     req.body.user = req.user._id;
      const appt = await Appointment.create(req.body);
-    //  appt.tags.forEach(function(t) {
-    //    return Tag.findById(t);
-    //  })
     res.json(appt);
 }
