@@ -3,7 +3,7 @@ const router = express.Router();
 const mealsCtrl = require('../../controllers/api/mealPlans');
 
 // GET /api/meals
-// router.get('/', mealsCtrl.getAll);
+router.get('/', mealsCtrl.get);
 // POST /api/meals
 router.post('/', mealsCtrl.create);
 //DELETE /api/meals/:id

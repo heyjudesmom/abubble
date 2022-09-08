@@ -5,23 +5,36 @@ import MealPlanIndex from '../../components/MealPlanForm/MealPlanIndex'
 
 export default function MealPlanPage({tags}) {
   const [plan, setPlan] = useState([]);
-  const [showForm, setShowForm] = useState(true);
-
+  const [showPlan, setShowPlan] = useState(true);
+  
   async function handleAddPlan(formData) {
     const plan = await mealPlanAPI.add(formData)
     setPlan(plan);
   }
 
+  useEffect(function() {
+    async function getPlan() {
+      const plan = await mealPlanAPI.get()
+      // console.log(plans)
+      // const sortedPlans = plans.sort((a, b) => b.createdAt - a.createdAt)
+      // console.log(sortedPlans)
+      setPlan(plan);
+    }
+    getPlan();
+  }, []) 
+
+  
+
     return (
       <main>
         <h1>Meal Plan Page</h1>
-        { showForm ?
-          <MealPlanForm tags={tags} handleAddPlan={handleAddPlan} />
+        { showPlan ?
+          <MealPlanIndex tags={tags} plan={plan}/>
           :
-          <MealPlanIndex tags={tags} />
+          <MealPlanForm tags={tags} handleAddPlan={handleAddPlan} plan={plan}/>
         }
-        <button onClick={() => setShowForm(!showForm)}>
-        {showForm ? 'Back to View' : 'Edit'}
+        <button onClick={() => setShowPlan(!showPlan)}>
+        {showPlan ? 'New Plan' : 'Back to View Plan'}
         </button>
       </main>
     );

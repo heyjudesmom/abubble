@@ -1,7 +1,7 @@
 import "./MealPlanForm.css";
 import {useState} from 'react';
 
-export default function MealPlanForm({ handleAddPlan, tags }) {
+export default function MealPlanForm({ handleAddPlan, tags, plan }) {
     const [selectedTags, setSelectedTags] = useState([]);
     const [newPlan, setNewPlan] = useState({
         sun: "", 
@@ -11,23 +11,25 @@ export default function MealPlanForm({ handleAddPlan, tags }) {
         thu: "", 
         fri: "", 
         sat: "", 
-        });
-
+    });
+    
     function handleSubmit(evt) {
         evt.preventDefault();
         handleAddPlan(newPlan);
-    }
 
+    }
+    
     function handleChange(evt) {
-      if (evt.target.name === 'tags') {
-      selectedTags.push(tags[parseInt(evt.target.value)]);
+        if (evt.target.name === 'tags') {
+            selectedTags.push(tags[parseInt(evt.target.value)]);
+        }
+        setSelectedTags(selectedTags)
+        
+        const newPlanData = { ...newPlan, [evt.target.name]: evt.target.value };
+        newPlanData.tags = selectedTags;
+        setNewPlan(newPlanData);
     }
-      setSelectedTags(selectedTags)
 
-      const newPlanData = { ...newPlan, [evt.target.name]: evt.target.value };
-      newPlanData.tags = selectedTags;
-      setNewPlan(newPlanData);
-    }
     return (
         <main className="meal-form">
             <form onSubmit={handleSubmit}>

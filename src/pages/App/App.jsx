@@ -33,7 +33,7 @@ export default function App() {
     const updatedTags = tags.filter((t) => t._id !== tag._id)
     setTags(updatedTags);
   }
-
+  if (!tags) return;
   return (
     <main className="App">
       { user ?
@@ -46,7 +46,7 @@ export default function App() {
             <Route path='/chores' element={<ChoresPage tags={tags}/>} />
             <Route path='/todos' element={<TodosPage tags={tags}/>} />
             <Route path='/mealplan' element={<MealPlanPage tags={tags}/>} />
-            <Route path='/tags' element={<TagsPage tags={tags} handleAddTag={handleAddTag} handleDelete={handleDelete}/>} />
+            <Route path='/tags' element={<TagsPage tags={tags} handleAddTag={handleAddTag} handleDelete={handleDelete} setTags={setTags}/>} />
           </Routes>
         </>
         :
