@@ -16,7 +16,11 @@ const apptSchema = new Schema({
     tags: [{
         type: Schema.Types.ObjectId, 
         ref: 'Tag'
-    }]
+    }],
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+    }
 });
 
 module.exports = mongoose.model('Appointment', apptSchema);

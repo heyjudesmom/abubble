@@ -1,17 +1,15 @@
 import './TagsPage.css';
-import * as tagsAPI from '../../utilities/tags-api';
 import TagsList from '../../components/TagsList/TagsList'
 import NewTagForm from '../../components/NewTagForm/NewTagForm'
-import { useEffect, useState } from 'react';
 
-export default function TagsPage({tags, handleAddTag}) {
+export default function TagsPage({tags, handleAddTag, handleDelete}) {
   
   return (
     <main>
       <h1>TagsPage</h1>
       <main className="flex-ctr-ctr">
-        <TagsList tags={tags} />
-        <NewTagForm handleAddTag={handleAddTag}/>
+        <TagsList tags={tags} handleDelete={handleDelete} />
+        <NewTagForm handleAddTag={handleAddTag}  />
       </main>
     </main>
   );

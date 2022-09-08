@@ -9,7 +9,11 @@ const todoSchema = new Schema({
     tags: [{
         type: Schema.Types.ObjectId, 
         ref: 'Tag'
-    }]
+    }],
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+    }
 });
 
 module.exports = mongoose.model('Todo', todoSchema);

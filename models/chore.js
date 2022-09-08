@@ -9,7 +9,11 @@ const choreSchema = new Schema({
     tags: [{
         type: Schema.Types.ObjectId, 
         ref: 'Tag'
-    }]
+    }], 
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+    }
 });
 
 module.exports = mongoose.model('Chore', choreSchema);

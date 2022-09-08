@@ -15,11 +15,11 @@ import './App.css';
 export default function App() {
   const [user, setUser] = useState(getUser());
   const [tags, setTags] = useState([]);
-
+  
   useEffect(function () {
     async function getTags() {
-      const tags = await tagsAPI.getAll();
-      setTags(tags);
+      const userTags = await tagsAPI.getAll();
+      setTags(userTags);
     }
     getTags();
   }, []);
@@ -27,6 +27,11 @@ export default function App() {
   async function handleAddTag(tagFormData) {
     const tag = await tagsAPI.add(tagFormData)
     setTags([...tags, tag]);
+  }
+  async function handleDelete(tagData) {
+    const tag = await tagsAPI.deleteTag(tagData);
+    const updatedTags = tags.filter((t) => t._id !== tag._id)
+    setTags(updatedTags);
   }
 
   return (
@@ -41,7 +46,7 @@ export default function App() {
             <Route path='/chores' element={<ChoresPage tags={tags}/>} />
             <Route path='/todos' element={<TodosPage tags={tags}/>} />
             <Route path='/mealplan' element={<MealPlanPage />} />
-            <Route path='/tags' element={<TagsPage tags={tags} handleAddTag={handleAddTag}/>} />
+            <Route path='/tags' element={<TagsPage tags={tags} handleAddTag={handleAddTag} handleDelete={handleDelete}/>} />
           </Routes>
         </>
         :
