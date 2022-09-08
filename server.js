@@ -29,6 +29,7 @@ const ensureLoggedIn = require('./config/ensureLoggedIn');
 app.use('/api/appointments', ensureLoggedIn, require('./routes/api/appointments'));
 app.use('/api/todos', ensureLoggedIn, require('./routes/api/todos'));
 app.use('/api/chores', ensureLoggedIn, require('./routes/api/chores'));
+app.use('/api/meal-plan', ensureLoggedIn, require('./routes/api/mealPlans'));
 app.use('/api/tags', ensureLoggedIn, require('./routes/api/tags'));
 
 // The following "catch all" route (note the *) is necessary

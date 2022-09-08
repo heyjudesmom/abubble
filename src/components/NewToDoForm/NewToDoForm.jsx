@@ -38,7 +38,6 @@ export default function NewToDoForm({ handleAddToDo, tags }) {
           value={newToDo.text}
           onChange={handleChange}
           required
-          pattern=".{4,}"
         />
         <label>Tags:</label>
         <select multiple={true} name="tags" value={newToDo.tags} onChange={handleChange}>

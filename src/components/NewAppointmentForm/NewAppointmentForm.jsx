@@ -40,7 +40,6 @@ export default function NewAppointmentForm({ handleAddAppt, tags }) {
           value={newAppt.title}
           onChange={handleChange}
           required
-          pattern=".{4,}"
         />
         <label>Date & Time: </label>
         <input
