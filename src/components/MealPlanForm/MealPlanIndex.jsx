@@ -1,5 +1,4 @@
 export default function MealPlanIndex({plan}) {
-    console.log(plan)
     return (
         <main>
             <h2>This Week</h2>
