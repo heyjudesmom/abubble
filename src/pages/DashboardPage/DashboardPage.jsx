@@ -4,6 +4,7 @@ import * as tagsAPI from '../../utilities/tags-api';
 import * as apptsAPI from '../../utilities/appointments-api';
 import * as mealPlanAPI from '../../utilities/meal-plan-api';
 import * as choresAPI from '../../utilities/chores-api';
+import * as todosAPI from '../../utilities/todos-api';
 
 export default function DashboardPage({user}) {
   //tags
@@ -36,9 +37,7 @@ const [appts, setAppts] = useState([]);
       const tagObjs = tags.filter((t) => tagIdArr.includes(t._id))
       const tagDivs = tagObjs.map((t, idx) => <button key={idx} style={{backgroundColor: `${t.color}`}} onClick={function(){alert('Clicked')}}>{t.text}</button>)
       return (
-        <div>
-          <span>{a.title} {a.datetime} {a.duration} minutes {tagDivs}</span>
-      </div>
+        <span>{a.title} {a.datetime} {a.duration} minutes {tagDivs}</span>
       );
     })
   
@@ -93,11 +92,29 @@ const [appts, setAppts] = useState([]);
       const tagObjs = tags.filter((t) => tagIdArr.includes(t._id))
       const tagDivs = tagObjs.map((t, idx) => <button key={idx} style={{backgroundColor: `${t.color}`}} onClick={function(){alert('Clicked')}}>{t.text}</button>)
       return (
-          <div>
-              <span>{c.text} {tagDivs}</span> 
-          </div>
+          <span>{c.text} {tagDivs}</span> 
         );
   })
+
+  //todo list
+  const [todos, setTodos] = useState([]);
+
+  useEffect(function () {
+    async function getTodos() {
+      const todos = await todosAPI.getAll();
+      setTodos(todos);
+    }
+    getTodos();
+  }, []);
+  const todosArr = todos.map(function(t, idx) {
+    const tagIdArr = t.tags;
+    const tagObjs = tags.filter((t) => tagIdArr.includes(t._id))
+    const tagDivs = tagObjs.map((t, idx) => <button key={idx} style={{backgroundColor: `${t.color}`}} onClick={function(){alert('Clicked')}}>{t.text}</button>)
+    
+    return (
+        <span>{t.text} {tagDivs}</span> 
+      );
+})
 
   return (
     <>
@@ -106,7 +123,7 @@ const [appts, setAppts] = useState([]);
         <div><h3>Appointments</h3>{apptsArr}</div>
         <div><h3>Chores</h3> {choresArr}</div>
         <div><h3>Meal Plan</h3>{mealPlan}</div>
-        <div>TodoListComponent</div>
+        <div><h3>To Do List</h3>{todosArr}</div>
       </main>
     </>
   );
