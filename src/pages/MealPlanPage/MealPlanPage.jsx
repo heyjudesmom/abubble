@@ -15,9 +15,6 @@ export default function MealPlanPage({tags}) {
   useEffect(function() {
     async function getPlan() {
       const plan = await mealPlanAPI.get()
-      // console.log(plans)
-      // const sortedPlans = plans.sort((a, b) => b.createdAt - a.createdAt)
-      // console.log(sortedPlans)
       setPlan(plan);
     }
     getPlan();
