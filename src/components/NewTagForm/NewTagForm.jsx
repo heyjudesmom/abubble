@@ -9,13 +9,16 @@ export default function NewTagForm({ handleAddTag }) {
 
     function handleSubmit(evt) {
         evt.preventDefault();
-        handleAddTag(newTag)
-    }
+        handleAddTag(newTag);
+        setNewTag({
+          text: "",
+          color: ""
+      });
+      }
 
     function handleChange(evt) {
         const newTagData = { ...newTag, [evt.target.name]: evt.target.value };
         setNewTag(newTagData);
-
     }
 
     return (

@@ -16,7 +16,9 @@ export default function NewChoreForm({ handleAddChore, tags }) {
 
     function handleSubmit(evt) {
         evt.preventDefault();
-        handleAddChore(newChore)
+        handleAddChore(newChore);
+        setNewChore({text: ""});
+        setSelectedTags([]);
     }
 
     function handleChange(evt) {

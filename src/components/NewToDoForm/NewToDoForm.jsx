@@ -16,6 +16,8 @@ export default function NewToDoForm({ handleAddToDo, tags }) {
     function handleSubmit(evt) {
         evt.preventDefault();
         handleAddToDo(newToDo)
+        setNewToDo({text: ""})
+        setSelectedTags([])
     }
 
     function handleChange(evt) {

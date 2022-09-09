@@ -5,6 +5,7 @@ export default function TagsList({ tags, handleDelete }) {
     return (
         <div className="grid-ctr-list">
             {arr}
+            <div>double click to delete a tag</div>
         </div>
     );
 }

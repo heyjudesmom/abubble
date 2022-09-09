@@ -28,7 +28,7 @@ export default function MealPlanPage({tags}) {
         { showPlan ?
           <MealPlanIndex tags={tags} plan={plan}/>
           :
-          <MealPlanForm tags={tags} handleAddPlan={handleAddPlan} plan={plan}/>
+          <MealPlanForm tags={tags} handleAddPlan={handleAddPlan} plan={plan} setShowPlan={setShowPlan}/>
         }
         <button onClick={() => setShowPlan(!showPlan)}>
         {showPlan ? 'New Plan' : 'Back to View Plan'}

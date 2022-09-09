@@ -1,7 +1,9 @@
 import "./MealPlanForm.css";
 import {useState} from 'react';
+import { Link, Navigate } from "react-router-dom";
+import MealPlanIndex from "./MealPlanIndex";
 
-export default function MealPlanForm({ handleAddPlan, tags, plan }) {
+export default function MealPlanForm({ handleAddPlan, tags, plan, setShowPlan }) {
     const [selectedTags, setSelectedTags] = useState([]);
     const [newPlan, setNewPlan] = useState({
         sun: "", 
@@ -16,7 +18,16 @@ export default function MealPlanForm({ handleAddPlan, tags, plan }) {
     function handleSubmit(evt) {
         evt.preventDefault();
         handleAddPlan(newPlan);
-
+        setNewPlan({
+            sun: "", 
+            mon: "", 
+            tue: "", 
+            wed: "", 
+            thu: "", 
+            fri: "", 
+            sat: "", 
+        });
+        setShowPlan(true);
     }
     
     function handleChange(evt) {

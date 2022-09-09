@@ -9,6 +9,15 @@ import * as todosAPI from '../../utilities/todos-api';
 export default function DashboardPage({user}) {
   //tags
   const [tags, setTags] = useState([]);
+  const [showSort, setShowSort] = useState(false)
+  const [sortBy, setSortBy] = useState(null);
+  
+  function sortByTag(evt) {
+    setSortBy(evt.target.value);  
+    setShowSort(true);
+    console.log(`sorting by ${evt.target.value}`)
+  }
+
   useEffect(function () {
     async function getTags() {
       if(!user) return;
@@ -18,7 +27,7 @@ export default function DashboardPage({user}) {
     getTags();
   }, [user]);
 
-  const tagArr = tags.map((t, idx) => <button key={idx} style={{backgroundColor: `${t.color}`}}>
+  const tagArr = tags.map((t, idx) => <button onClick={sortByTag} value={t._id} key={idx} style={{backgroundColor: `${t.color}`}}>
   {t.text}
 </button>)
 

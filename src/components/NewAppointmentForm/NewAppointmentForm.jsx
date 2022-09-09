@@ -17,7 +17,13 @@ export default function NewAppointmentForm({ handleAddAppt, tags }) {
 
     function handleSubmit(evt) {
         evt.preventDefault();
-        handleAddAppt(newAppt)
+        handleAddAppt(newAppt);
+        setNewAppt({
+          title: "",
+          datetime: "",
+          duration: "", 
+      });
+        setSelectedTags([]);
     }
 
     function handleChange(evt) {

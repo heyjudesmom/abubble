@@ -1,21 +1,28 @@
 export default function MealPlanIndex({plan}) {
     return (
-        <main>
-            <h2>This Week</h2>
-            <div>Sunday</div>
-            <div>{plan.sun}</div>
-            <div>Monday</div>
-            <div>{plan.mon}</div>
-            <div>Tuesday</div>
-            <div>{plan.tue}</div>
-            <div>Wednesday</div>
-            <div>{plan.wed}</div>
-            <div>Thursday</div>
-            <div>{plan.thu}</div>
-            <div>Friday</div>
-            <div>{plan.fri}</div>
-            <div>Saturday</div>
-            <div>{plan.sat}</div>
+        <main className="meal-table">
+            <table>
+            <thead>
+                <tr>
+                <th>Sun</th>
+                <th>Mon</th>
+                <th>Tue</th>
+                <th>Wed</th>
+                <th>Thu</th>
+                <th>Fri</th>
+                <th>Sat</th>
+                </tr>
+                <tr>
+                <td>{plan.sun}</td>
+                <td>{plan.mon}</td>
+                <td>{plan.tue}</td>
+                <td>{plan.wed}</td>
+                <td>{plan.thu}</td>
+                <td>{plan.fri}</td>
+                <td>{plan.sat}</td>
+                </tr>
+            </thead>
+            </table>
         </main>
     );
 }
