@@ -1,8 +1,6 @@
 import './TagsPage.css';
 import TagsList from '../../components/TagsList/TagsList'
 import NewTagForm from '../../components/NewTagForm/NewTagForm'
-import { useEffect } from 'react';
-import * as tagsAPI from '../../utilities/tags-api';
 export default function TagsPage({tags, handleAddTag, handleDelete, setTags}) {
   
   return (

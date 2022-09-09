@@ -6,12 +6,12 @@ import AuthPage from '../AuthPage/AuthPage';
 import DashboardPage from '../DashboardPage/DashboardPage';
 import AppointmentsPage from '../AppointmentsPage/AppointmentsPage';
 import ChoresPage from '../ChoresPage/ChoresPage';
-import ChoreItemEdit from '../../components/ChoreItem/ChoreItemEdit';
 import TodosPage from '../TodosPage/TodosPage';
 import MealPlanPage from '../MealPlanPage/MealPlanPage';
 import TagsPage from '../TagsPage/TagsPage';
 import NavBar from '../../components/NavBar/NavBar';
 import './App.css';
+import TagsList from '../../components/TagsList/TagsList';
 
 export default function App() {
   const [user, setUser] = useState(getUser());
@@ -36,6 +36,7 @@ export default function App() {
     setTags(updatedTags);
   }
   if (!tags) return;
+  
   return (
     <main className="App">
       { user ?
@@ -43,10 +44,9 @@ export default function App() {
           <NavBar user={user} setUser={setUser}/>
           <Routes>
             {/* Route components in here */}
-            <Route path='/' element={<DashboardPage />} />
+            <Route path='/' element={<DashboardPage tags={tags} user={user}/>} />
             <Route path='/appointments' element={<AppointmentsPage tags={tags}/>} />
             <Route path='/chores' element={<ChoresPage tags={tags}/>} />
-            <Route path='/chores/:id/edit' element={<ChoreItemEdit tags={tags}/>} />
             <Route path='/todos' element={<TodosPage tags={tags}/>} />
             <Route path='/mealplan' element={<MealPlanPage tags={tags}/>} />
             <Route path='/tags' element={<TagsPage tags={tags} handleAddTag={handleAddTag} handleDelete={handleDelete} setTags={setTags}/>} />

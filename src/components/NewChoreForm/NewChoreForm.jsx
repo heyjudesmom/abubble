@@ -7,6 +7,7 @@ export default function NewChoreForm({ handleAddChore, tags }) {
         text: "",
     });
 
+    if (!tags) return;
     const options = tags.map(function(t, idx) {
       return(
       <option key={idx} value={idx} style={{backgroundColor:t.color}}>{t.text}</option>
@@ -23,7 +24,6 @@ export default function NewChoreForm({ handleAddChore, tags }) {
       selectedTags.push(tags[parseInt(evt.target.value)]);
     }
       setSelectedTags(selectedTags)
-
       const newChoreData = { ...newChore, [evt.target.name]: evt.target.value };
       newChoreData.tags = selectedTags;
       setNewChore(newChoreData);
@@ -38,7 +38,6 @@ export default function NewChoreForm({ handleAddChore, tags }) {
           value={newChore.text}
           onChange={handleChange}
           required
-          pattern=".{4,}"
         />
         <label>Tags:</label>
         <select multiple={true} name="tags" value={newChore.tags} onChange={handleChange}>

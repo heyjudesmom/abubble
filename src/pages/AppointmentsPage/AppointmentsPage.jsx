@@ -6,7 +6,6 @@ import { useEffect, useState } from "react";
 
 export default function AppointmentsPage({tags}) {
   const [appts, setAppts] = useState([]);
-
   useEffect(function () {
     async function getAppts() {
       const appts = await apptsAPI.getAll();
@@ -14,7 +13,7 @@ export default function AppointmentsPage({tags}) {
     }
     getAppts();
   }, []);
-
+  
   async function handleAddAppt(apptFormData) {
     const appt = await apptsAPI.add(apptFormData)
     setAppts([...appts, appt]);
