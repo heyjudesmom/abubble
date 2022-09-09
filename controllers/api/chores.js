@@ -4,7 +4,7 @@ module.exports = {
     getAll,
     create,
     delete: deleteChore,
-    // update: updateChore,
+    update: updateChore,
 }
 
 async function getAll(req, res) {
@@ -29,9 +29,12 @@ async function deleteChore(req, res, next) {
     }
 }
 
-// async function updateChore(req, res) {
-//     console.log("req:",req)
-//     const chore = await Chore.findByIdAndUpdate({'_id': req.params.id});
-//     console.log("chore:",chore)
-//     res.json(chore);
-// }
+async function updateChore(req, res) {
+    console.log("req.body:",req.body, req.params.id)
+    
+    const chore = await Chore.findByIdAndUpdate({'_id': req.params.id}, req.body);
+    const chores = await Chore.find({
+        user: req.user._id
+    });
+    res.json(chores);
+}

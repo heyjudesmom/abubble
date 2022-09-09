@@ -14,6 +14,6 @@ export function deleteChore(id) {
     return sendRequest(`${BASE_URL}/${id}`, 'DELETE');
 }
 
-// export function update(id) {
-//     return sendRequest(`${BASE_URL}/${id}/edit`, 'PUT')
-// }
+export function update(data, id) {
+    return sendRequest(`${BASE_URL}/${id}/edit`, 'PUT', data)
+}

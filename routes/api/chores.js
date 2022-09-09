@@ -9,6 +9,7 @@ router.post('/', choresCtrl.create);
 //DELETE /api/chores/:id
 router.delete('/:id', choresCtrl.delete);
 //PUT /api/chores/:id/edit
-// router.put('/:id/edit') 
+router.put('/:id/edit', choresCtrl.update) 
+
 
 module.exports = router;

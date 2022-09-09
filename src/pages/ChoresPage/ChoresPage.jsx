@@ -2,9 +2,10 @@ import ChoreList from "../../components/ChoreList/ChoreList";
 import NewChoreForm from "../../components/NewChoreForm/NewChoreForm";
 import * as choresAPI from "../../utilities/chores-api"
 import {useState, useEffect} from 'react';
-
+import EditChoreForm from "../../components/EditChoreForm/EditChoreForm";
 export default function ChoresPage({tags}) {
   const [chores, setChores] = useState([]);
+  const [showEditForm, setShowEditForm] = useState(false)
 
   useEffect(function () {
     async function getChores() {
@@ -25,17 +26,18 @@ export default function ChoresPage({tags}) {
     setChores(updatedChores);
   }
 
-  // async function handleUpdate(formData) {
-  //   const chore = await choresAPI.update(formData);
-  //   setChores([...chores, chore]);
-  // }
+  async function handleUpdate(formData, id) {
+    console.log(formData)
+    const chores = await choresAPI.update(formData, id);
+    setChores(chores);
+  }
 
     return (
       <main>
         <h1>ChoresPage</h1>
         <main className="flex-ctr-ctr">
-          <ChoreList chores={chores} tags={tags} handleDelete={handleDelete}/>
-          <NewChoreForm handleAddChore={handleAddChore} tags={tags}/>
+          <ChoreList chores={chores} tags={tags} handleDelete={handleDelete} handleUpdate={handleUpdate} setShowEditForm={setShowEditForm} showEditForm={showEditForm}/>
+          <NewChoreForm handleAddChore={handleAddChore} tags={tags} />
         </main>
     </main>
     );
