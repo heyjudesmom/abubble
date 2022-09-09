@@ -24,11 +24,18 @@ export default function ChoresPage({tags}) {
     const updatedChores = chores.filter((c) => c._id !== chore._id)
     setChores(updatedChores);
   }
+
+  // async function handleEdit(choreData){
+  //   const chore = await choresAPI.editChore(choreData);
+  //   console.log(alert(chore._id))
+    // setChores([...chores, chore]);
+  // }
+
     return (
       <main>
         <h1>ChoresPage</h1>
         <main className="flex-ctr-ctr">
-          <ChoreList chores={chores} tags={tags} handleDelete={handleDelete}/>
+          <ChoreList chores={chores} tags={tags} handleDelete={handleDelete} />
           <NewChoreForm handleAddChore={handleAddChore} tags={tags}/>
         </main>
     </main>

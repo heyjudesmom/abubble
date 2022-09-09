@@ -6,6 +6,7 @@ import AuthPage from '../AuthPage/AuthPage';
 import DashboardPage from '../DashboardPage/DashboardPage';
 import AppointmentsPage from '../AppointmentsPage/AppointmentsPage';
 import ChoresPage from '../ChoresPage/ChoresPage';
+import ChoreItemEdit from '../../components/ChoreItem/ChoreItemEdit';
 import TodosPage from '../TodosPage/TodosPage';
 import MealPlanPage from '../MealPlanPage/MealPlanPage';
 import TagsPage from '../TagsPage/TagsPage';
@@ -15,14 +16,15 @@ import './App.css';
 export default function App() {
   const [user, setUser] = useState(getUser());
   const [tags, setTags] = useState([]);
-  
+
   useEffect(function () {
     async function getTags() {
+      if(!user) return;
       const userTags = await tagsAPI.getAll();
       setTags(userTags);
     }
     getTags();
-  }, []);
+  }, [user]);
 
   async function handleAddTag(tagFormData) {
     const tag = await tagsAPI.add(tagFormData)
@@ -44,6 +46,7 @@ export default function App() {
             <Route path='/' element={<DashboardPage />} />
             <Route path='/appointments' element={<AppointmentsPage tags={tags}/>} />
             <Route path='/chores' element={<ChoresPage tags={tags}/>} />
+            <Route path='/chores/:id/edit' element={<ChoreItemEdit tags={tags}/>} />
             <Route path='/todos' element={<TodosPage tags={tags}/>} />
             <Route path='/mealplan' element={<MealPlanPage tags={tags}/>} />
             <Route path='/tags' element={<TagsPage tags={tags} handleAddTag={handleAddTag} handleDelete={handleDelete} setTags={setTags}/>} />

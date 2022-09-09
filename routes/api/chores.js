@@ -8,5 +8,7 @@ router.get('/', choresCtrl.getAll);
 router.post('/', choresCtrl.create);
 //DELETE /api/chores/:id
 router.delete('/:id', choresCtrl.delete);
+//PUT /api/chore/:id/edit
+router.put('/:id/edit') 
 
 module.exports = router;
