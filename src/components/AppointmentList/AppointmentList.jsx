@@ -11,8 +11,10 @@ export default function AppointmentList({ appts, tags, handleDelete}) {
     })
     
     return (
-        <div className="grid-ctr-list">
-            {apptsArr}
+        <div class="table-responsive table-condensed table-bordered">
+            <table class="table">
+                    {apptsArr}
+            </table>
         </div>
     );
 }
