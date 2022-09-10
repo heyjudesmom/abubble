@@ -40,30 +40,33 @@ export default function NewAppointmentForm({ handleAddAppt, tags }) {
     return (
         <>
       <form onSubmit={handleSubmit}>
-        <div class="form-group">
-          <label for="title">Title: </label>
-          <input
-            type="text"
-            class="form-control" 
-            id="title"
-            name="title"
-            value={newAppt.title}
-            onChange={handleChange}
-            required
-          />
+        <h3>New Appointment</h3> <br />
+        <div class="row">
+          <div class="form-group col-md-3">
+            <label for="title">Title: </label>
+              <input
+                type="text"
+                class="form-control" 
+                id="title"
+                name="title"
+                value={newAppt.title}
+                onChange={handleChange}
+                required
+              />
+          </div>
+
+        <div class="form-group col-md-3">
+          <label for="date" >Date/Time: </label>
+            <input
+              id="date"
+              class="form-control"
+              type="datetime-local"
+              name="datetime"
+              value={newAppt.datetime}
+              onChange={handleChange}
+            />
         </div>
-        <div class="form-group">
-          <label for="date">Date/Time: </label>
-          <input
-            id="date"
-            class="form-control"
-            type="datetime-local"
-            name="datetime"
-            value={newAppt.datetime}
-            onChange={handleChange}
-          />
-        </div>
-        <div class="form-group">
+        <div class="form-group col-md-2">
           <label>Duration: </label>
           <input
             name="duration"
@@ -76,13 +79,16 @@ export default function NewAppointmentForm({ handleAddAppt, tags }) {
             min="0"
           />
         </div>
-        <div>
+        <div class="form-group col-md-2">
           <label for="tags">Tags:</label>
-          <select class="form-control" multiple={true} id="tags" name="tags" value={newAppt.tags} onChange={handleChange}>
-            {options}
-          </select>
+          <div>
+            <select style={{width:"90%"}} multiple={true} id="tags" name="tags" value={newAppt.tags} onChange={handleChange}>
+              {options}
+            </select>
+          </div>
         </div>
-        <span></span><button type="submit" class="btn btn-default">Add Appointment</button>
+        <div class="form-group" style={{marginTop:"2em"}}><button type="submit" class="btn btn-default">Add Appointment</button></div>
+        </div>
       </form>
     </>
     );

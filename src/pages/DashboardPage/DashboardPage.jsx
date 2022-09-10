@@ -27,7 +27,7 @@ export default function DashboardPage({user}) {
     getTags();
   }, [user]);
 
-  const tagArr = tags.map((t, idx) => <button onClick={sortByTag} value={t._id} key={idx} style={{backgroundColor: `${t.color}`}}>
+  const tagArr = tags.map((t, idx) => <button class="btn " onClick={sortByTag} value={t._id} key={idx} style={{backgroundColor: `${t.color}`}}>
   {t.text}
 </button>)
 
@@ -44,9 +44,18 @@ const [appts, setAppts] = useState([]);
     const apptsArr = appts.map(function(a, idx) {
       const tagIdArr = a.tags;
       const tagObjs = tags.filter((t) => tagIdArr.includes(t._id))
-      const tagDivs = tagObjs.map((t, idx) => <button key={idx} style={{backgroundColor: `${t.color}`}} onClick={function(){alert('Clicked')}}>{t.text}</button>)
+      const tagDivs = tagObjs.map((t, idx) => <button class="btn btn-xs"key={idx} style={{backgroundColor: `${t.color}`}} onClick={function(){alert('Clicked')}}>{t.text}</button>)
+      let datestr = new Date(a.datetime).toLocaleString();
+      a.datetime = datestr;      
       return (
-        <span>{a.title} {a.datetime} {a.duration} minutes {tagDivs}</span>
+        <tbody>
+          <tr>
+              <td>{a.datetime}</td>
+              <td>{a.title}</td>
+              <td><div class="btn-group">{tagDivs}</div></td>
+              <td>{a.duration} minutes</td>
+          </tr> 
+        </tbody>
       );
     })
   
@@ -99,7 +108,7 @@ const [appts, setAppts] = useState([]);
     const choresArr = chores.map(function(c, idx) {
       const tagIdArr = c.tags;
       const tagObjs = tags.filter((t) => tagIdArr.includes(t._id))
-      const tagDivs = tagObjs.map((t, idx) => <button key={idx} style={{backgroundColor: `${t.color}`}} onClick={function(){alert('Clicked')}}>{t.text}</button>)
+      const tagDivs = tagObjs.map((t, idx) => <button class="btn btn-xs"key={idx} style={{backgroundColor: `${t.color}`}} onClick={function(){alert('Clicked')}}>{t.text}</button>)
       return (
           <span>{c.text} {tagDivs}</span> 
         );
@@ -118,7 +127,7 @@ const [appts, setAppts] = useState([]);
   const todosArr = todos.map(function(t, idx) {
     const tagIdArr = t.tags;
     const tagObjs = tags.filter((t) => tagIdArr.includes(t._id))
-    const tagDivs = tagObjs.map((t, idx) => <button key={idx} style={{backgroundColor: `${t.color}`}} onClick={function(){alert('Clicked')}}>{t.text}</button>)
+    const tagDivs = tagObjs.map((t, idx) => <button class="btn btn-xs"key={idx} style={{backgroundColor: `${t.color}`}} onClick={function(){alert('Clicked')}}>{t.text}</button>)
     
     return (
         <span>{t.text} {tagDivs}</span> 
@@ -129,7 +138,14 @@ const [appts, setAppts] = useState([]);
     <>
     {tagArr}
       <main className="container">
-        <div><h3>Appointments</h3>{apptsArr}</div>
+        <div>
+          <h3>Appointments</h3>        
+          <div class="table-responsive table-condensed table-bordered">
+            <table class="table">
+                    {apptsArr}
+            </table>
+          </div>
+        </div>
         <div><h3>Chores</h3> {choresArr}</div>
         <div><h3>Meal Plan</h3>{mealPlan}</div>
         <div><h3>To Do List</h3>{todosArr}</div>
