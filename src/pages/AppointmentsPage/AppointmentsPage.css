@@ -1,11 +1,10 @@
-.flex-ctr-ctr{
+/* .flex-ctr-ctr{
     display: flex;
     justify-content: center;
     align-items: center;
     /* margin: 5vh; */
     /* padding: 2vh; */
-}
 
-.flex-ctr-ctr > * {
+/* .flex-ctr-ctr > * {
     padding: 5vh;
-}
+} */

@@ -61,7 +61,7 @@ const [appts, setAppts] = useState([]);
     }, []) 
 
     const mealPlan = (
-      <table>
+      <table className="table table-bordered">
         <thead>
             <tr>
               <th>Sun</th>
@@ -128,7 +128,7 @@ const [appts, setAppts] = useState([]);
   return (
     <>
     {tagArr}
-      <main className="grid-container-4">
+      <main className="container">
         <div><h3>Appointments</h3>{apptsArr}</div>
         <div><h3>Chores</h3> {choresArr}</div>
         <div><h3>Meal Plan</h3>{mealPlan}</div>
