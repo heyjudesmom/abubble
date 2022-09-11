@@ -5,12 +5,14 @@ export default function ToDoList({ todos, tags, handleDelete}) {
     
     const todosArr = todos.map(function(t, idx) {
         return (
-            <ToDoItem t={t} key={idx} index={idx} handleDelete={handleDelete} tags={tags}/>
+            <div >
+                <ToDoItem t={t} key={idx} index={idx} handleDelete={handleDelete} tags={tags}/>
+            </div>
         );
     })
     
     return (
-        <div className="grid-ctr-list">
+        <div className="list">
             {todosArr}
         </div>
     );

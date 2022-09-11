@@ -36,6 +36,7 @@ export default function NewToDoForm({ handleAddToDo, tags }) {
     return (
         <>
       <form onSubmit={handleSubmit}>
+        <h3>new</h3>
         <div className="form-group">
           <label>text: </label>
           <input

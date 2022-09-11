@@ -183,7 +183,7 @@ const [appts, setAppts] = useState([]);
   return (
       <div className="container-fluid" >
         <div>
-          {tagArr}
+          <span>focus: {tagArr}</span>
         </div>
         <div className="row-grid">
           <div className="">

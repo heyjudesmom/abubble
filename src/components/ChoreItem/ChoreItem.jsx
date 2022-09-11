@@ -20,8 +20,8 @@ export default function ChoreItem({ c, index, handleDelete, tags, handleUpdate, 
             <>
                 <div>{c.text}</div> 
                 <div>{tagDivs}</div>
-                <button className="btn btn-default btn-success" onClick={() => setShowEditForm(!showEditForm)}>edit</button>
-                <button className="btn btn-default btn-warning" onClick={() => handleDelete(c._id)}>delete</button>
+                <button className="btn btn-default btn-xs" onClick={() => setShowEditForm(!showEditForm)}>edit</button>
+                <button className="btn btn-default btn-xs" onClick={() => handleDelete(c._id)}>delete</button>
             </>
             }
         </div>
