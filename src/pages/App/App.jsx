@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Routes, Route, NavLink, Link } from 'react-router-dom';
+import { Routes, Route, Link } from 'react-router-dom';
 import { getUser } from '../../utilities/users-service';
 import * as tagsAPI from '../../utilities/tags-api';
 import AuthPage from '../AuthPage/AuthPage';
@@ -46,18 +46,18 @@ export default function App() {
     <main className="App">
       { user ?
         <>
-        <nav class="navbar navbar-default">
-          <div class="container-fluid">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
+        <nav className="navbar navbar-default">
+          <div className="container-fluid">
+            <div className="navbar-header">
+              <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
+                <span className="icon-bar"></span>
+                <span className="icon-bar"></span>
+                <span className="icon-bar"></span>
               </button>
-              <img class="navbar-brand" alt="Logo" src="https://i.imgur.com/3WhkOrF.png?1"/>
+              <img className="navbar-brand" alt="Logo" src="https://i.imgur.com/3WhkOrF.png?1"/>
             </div>
-            <div class="collapse navbar-collapse" id="navbar-collapse-1">
-              <ul class="nav navbar-nav">
+            <div className="collapse navbar-collapse" id="navbar-collapse-1">
+              <ul className="nav navbar-nav">
                 <li><Link to='/'>{user.name}'s dash</Link></li>
                 <li><Link to='/appointments'>appts</Link></li>
                 <li><Link to='/chores'>chores</Link></li>
@@ -65,7 +65,7 @@ export default function App() {
                 <li><Link to='/mealplan'>meals</Link></li>
                 <li><Link to='/tags'>tags</Link></li>
               </ul>
-              <ul class="nav navbar-nav navbar-right">
+              <ul className="nav navbar-nav navbar-right">
                   <li><Link to='' onClick={handleLogOut}>log out</Link></li>
               </ul>
             </div>
@@ -80,7 +80,7 @@ export default function App() {
             <Route path='/mealplan' element={<MealPlanPage tags={tags}/>} />
             <Route path='/tags' element={<TagsPage tags={tags} handleAddTag={handleAddTag} handleDelete={handleDelete} setTags={setTags}/>} />
           </Routes>
-          <footer class="panel-footer">&copy; 2022 abubble</footer>
+          <footer className="panel-footer">&copy; 2022 abubble</footer>
         </>
         :
         <AuthPage setUser={setUser} />

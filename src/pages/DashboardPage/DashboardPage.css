@@ -15,3 +15,9 @@
     justify-content: center;
     align-items: center;
 } */
+
+.row-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 40vh;
+}

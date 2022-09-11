@@ -27,7 +27,7 @@ export default function AppointmentsPage({tags}) {
 
   return (
     <main>
-      <h1>AppointmentsPage</h1>
+      <h1>appointments.</h1>
       <main className="container">
         <AppointmentList appts={appts} tags={tags} handleDelete={handleDelete}/>
         <NewAppointmentForm handleAddAppt={handleAddAppt} tags={tags}/>

@@ -27,7 +27,7 @@ export default function DashboardPage({user}) {
     getTags();
   }, [user]);
 
-  const tagArr = tags.map((t, idx) => <button class="btn " onClick={sortByTag} value={t._id} key={idx} style={{backgroundColor: `${t.color}`}}>
+  const tagArr = tags.map((t, idx) => <button className="btn " onClick={sortByTag} value={t._id} key={idx} style={{backgroundColor: `${t.color}`}}>
   {t.text}
 </button>)
 
@@ -44,7 +44,7 @@ const [appts, setAppts] = useState([]);
     const apptsArr = appts.map(function(a, idx) {
       const tagIdArr = a.tags;
       const tagObjs = tags.filter((t) => tagIdArr.includes(t._id))
-      const tagDivs = tagObjs.map((t, idx) => <button class="btn btn-xs"key={idx} style={{backgroundColor: `${t.color}`}} onClick={function(){alert('Clicked')}}>{t.text}</button>)
+      const tagDivs = tagObjs.map((t, idx) => <button className="btn btn-xs"key={idx} style={{backgroundColor: `${t.color}`}} onClick={function(){alert('Clicked')}}>{t.text}</button>)
       let datestr = new Date(a.datetime).toLocaleString();
       a.datetime = datestr;      
       return (
@@ -52,7 +52,7 @@ const [appts, setAppts] = useState([]);
           <tr>
               <td>{a.datetime}</td>
               <td>{a.title}</td>
-              <td><div class="btn-group">{tagDivs}</div></td>
+              <td><div className="btn-group">{tagDivs}</div></td>
               <td>{a.duration} minutes</td>
           </tr> 
         </tbody>
@@ -73,13 +73,13 @@ const [appts, setAppts] = useState([]);
       <table className="table table-bordered">
         <thead>
             <tr>
-              <th>Sun</th>
-              <th>Mon</th>
-              <th>Tue</th>
-              <th>Wed</th>
-              <th>Thu</th>
-              <th>Fri</th>
-              <th>Sat</th>
+              <th>sun</th>
+              <th>mon</th>
+              <th>tue</th>
+              <th>wed</th>
+              <th>thu</th>
+              <th>fri</th>
+              <th>sat</th>
             </tr>
             <tr>
               <td>{plan.sun}</td>
@@ -108,9 +108,9 @@ const [appts, setAppts] = useState([]);
     const choresArr = chores.map(function(c, idx) {
       const tagIdArr = c.tags;
       const tagObjs = tags.filter((t) => tagIdArr.includes(t._id))
-      const tagDivs = tagObjs.map((t, idx) => <button class="btn btn-xs"key={idx} style={{backgroundColor: `${t.color}`}} onClick={function(){alert('Clicked')}}>{t.text}</button>)
+      const tagDivs = tagObjs.map((t, idx) => <button className="btn btn-xs"key={idx} style={{backgroundColor: `${t.color}`}} onClick={function(){alert('Clicked')}}>{t.text}</button>)
       return (
-          <span>{c.text} {tagDivs}</span> 
+          <div className="border border-secondary">{c.text} {tagDivs}</div> 
         );
   })
 
@@ -127,29 +127,33 @@ const [appts, setAppts] = useState([]);
   const todosArr = todos.map(function(t, idx) {
     const tagIdArr = t.tags;
     const tagObjs = tags.filter((t) => tagIdArr.includes(t._id))
-    const tagDivs = tagObjs.map((t, idx) => <button class="btn btn-xs"key={idx} style={{backgroundColor: `${t.color}`}} onClick={function(){alert('Clicked')}}>{t.text}</button>)
+    const tagDivs = tagObjs.map((t, idx) => <button className="btn btn-xs"key={idx} style={{backgroundColor: `${t.color}`}} onClick={function(){alert('Clicked')}}>{t.text}</button>)
     
     return (
-        <span>{t.text} {tagDivs}</span> 
+        <div className="border border-secondary">
+          <div>{t.text} {tagDivs}</div>
+        </div> 
       );
 })
 
   return (
-    <>
-    {tagArr}
-      <main className="container">
+      <div className="container-fluid" >
         <div>
-          <h3>Appointments</h3>        
-          <div class="table-responsive table-condensed table-bordered">
-            <table class="table">
-                    {apptsArr}
+          {tagArr}
+        </div>
+        <div className="row-grid">
+          <div className="table-responsive table-condensed table-bordered col">
+            <h3>appointments.</h3>        
+            <table className="table">
+                {apptsArr}
             </table>
           </div>
+          <div className="col"><h3>chores.</h3> {choresArr}</div>
         </div>
-        <div><h3>Chores</h3> {choresArr}</div>
-        <div><h3>Meal Plan</h3>{mealPlan}</div>
-        <div><h3>To Do List</h3>{todosArr}</div>
-      </main>
-    </>
+        <div className="row-grid">
+          <div className="col"><h3>meal plan.</h3>{mealPlan}</div>
+          <div className="col"><h3>to do list.</h3>{todosArr}</div>
+        </div>
+      </div>
   );
 }
