@@ -7,6 +7,8 @@ export default function NewToDoForm({ handleAddToDo, tags }) {
         text: "",
     });
 
+   
+
     const options = tags.map(function(t, idx) {
       return(
       <option key={idx} value={idx} style={{backgroundColor:t.color}}>{t.text}</option>
@@ -41,10 +43,16 @@ export default function NewToDoForm({ handleAddToDo, tags }) {
           onChange={handleChange}
           required
         />
-        <label>Tags:</label>
-        <select multiple={true} name="tags" value={newToDo.tags} onChange={handleChange}>
-          {options}
-        </select>
+        { options.length ? 
+        <>
+          <label>Tags:</label>
+          <select multiple={true} name="tags" value={newToDo.tags} onChange={handleChange}>
+            {options}
+          </select>
+        </>
+        :
+        ""
+        }
         <span></span><button type="submit">Add to list</button>
       </form>
     </>

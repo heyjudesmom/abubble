@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import * as mealPlanAPI from '../../utilities/meal-plan-api';
 import MealPlanForm from '../../components/MealPlanForm/MealPlanForm';
 import MealPlanIndex from '../../components/MealPlanForm/MealPlanIndex'
+import "./MealPlanPage.css";
 
 export default function MealPlanPage({tags}) {
   const [plan, setPlan] = useState([]);
@@ -23,15 +24,15 @@ export default function MealPlanPage({tags}) {
   
 
     return (
-      <main>
-        <h1>Meal Plan Page</h1>
+      <main className="ctr">
+        <h1>meal plan.</h1>
         { showPlan ?
           <MealPlanIndex tags={tags} plan={plan}/>
           :
           <MealPlanForm tags={tags} handleAddPlan={handleAddPlan} plan={plan} setShowPlan={setShowPlan}/>
         }
         <button onClick={() => setShowPlan(!showPlan)}>
-        {showPlan ? 'New Plan' : 'Back to View Plan'}
+        {showPlan ? 'new plan' : 'cancel'}
         </button>
       </main>
     );

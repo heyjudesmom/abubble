@@ -70,7 +70,7 @@ const [appts, setAppts] = useState([]);
     }, []) 
 
     const mealPlan = (
-      <table className="table table-bordered">
+      <table className="table table-bordered table-responsive table-condensed" id="table">
         <thead>
             <tr>
               <th>sun</th>
@@ -82,13 +82,48 @@ const [appts, setAppts] = useState([]);
               <th>sat</th>
             </tr>
             <tr>
+              {
+              plan.sun ? 
               <td>{plan.sun}</td>
+              :
+              <td style={{backgroundColor:"#CAE2E4"}}></td>
+              }
+              {
+              plan.mon ? 
               <td>{plan.mon}</td>
+              :
+              <td style={{backgroundColor:"#CAE2E4"}}></td>
+              }
+              {
+              plan.tue ? 
               <td>{plan.tue}</td>
+              :
+              <td style={{backgroundColor:"#CAE2E4"}}></td>
+              }
+              {
+              plan.wed ? 
               <td>{plan.wed}</td>
+              :
+              <td style={{backgroundColor:"#CAE2E4"}}></td>
+              }
+              {
+              plan.thu ? 
               <td>{plan.thu}</td>
+              :
+              <td style={{backgroundColor:"#CAE2E4"}}></td>
+              }
+              {
+              plan.fri ? 
               <td>{plan.fri}</td>
+              :
+              <td style={{backgroundColor:"#CAE2E4"}}></td>
+              }
+              {
+              plan.sat ? 
               <td>{plan.sat}</td>
+              :
+              <td style={{backgroundColor:"#CAE2E4"}}></td>
+              }
             </tr>
           </thead>
         </table>
@@ -125,16 +160,15 @@ const [appts, setAppts] = useState([]);
     getTodos();
   }, []);
   const todosArr = todos.map(function(t, idx) {
-    const tagIdArr = t.tags;
-    const tagObjs = tags.filter((t) => tagIdArr.includes(t._id))
-    const tagDivs = tagObjs.map((t, idx) => <button className="btn btn-xs"key={idx} style={{backgroundColor: `${t.color}`}} onClick={function(){alert('Clicked')}}>{t.text}</button>)
-    
-    return (
+      const tagIdArr = t.tags;
+      const tagObjs = tags.filter((t) => tagIdArr.includes(t._id));
+      const tagDivs = tagObjs.map((t, idx) => <button className="btn btn-xs"key={idx} style={{backgroundColor: `${t.color}`}} onClick={function(){alert('Clicked')}}>{t.text}</button>);
+      return (
         <div className="border border-secondary">
           <div>{t.text} {tagDivs}</div>
         </div> 
       );
-})
+});
 
   return (
       <div className="container-fluid" >
@@ -142,17 +176,36 @@ const [appts, setAppts] = useState([]);
           {tagArr}
         </div>
         <div className="row-grid">
-          <div className="table-responsive table-condensed table-bordered col">
-            <h3>appointments.</h3>        
-            <table className="table">
-                {apptsArr}
-            </table>
+          <div className="">
+            <h3>appointments.</h3>    
+            {
+              apptsArr.length ? 
+              <table className="table table-responsive table-condensed table-bordered col">
+                  {apptsArr}
+              </table>
+              :
+              <h5>no appointments.</h5>
+            }    
           </div>
-          <div className="col"><h3>chores.</h3> {choresArr}</div>
+          <div className="col"><h3>chores.</h3> 
+          {
+            choresArr.length ?
+            {choresArr}
+            :
+            <h5>no chores.</h5>
+          }
+          </div>
         </div>
         <div className="row-grid">
           <div className="col"><h3>meal plan.</h3>{mealPlan}</div>
-          <div className="col"><h3>to do list.</h3>{todosArr}</div>
+          <div className="col"><h3>to do list.</h3>
+          {
+            todosArr.length ?
+            {todosArr}
+            :
+            <h5>nothing to do.</h5>
+          }
+          </div>
         </div>
       </div>
   );

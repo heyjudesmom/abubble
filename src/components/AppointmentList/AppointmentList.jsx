@@ -11,10 +11,15 @@ export default function AppointmentList({ appts, tags, handleDelete}) {
     })
     
     return (
-        <div class="table-responsive table-condensed table-bordered">
-            <table class="table">
+        <div>
+            {
+                apptsArr.length ? 
+                <table className="table table-responsive table-condensed table-bordered col">
                     {apptsArr}
-            </table>
+                </table>
+                :
+                <h5>no appointments.</h5>
+            }  
         </div>
     );
 }

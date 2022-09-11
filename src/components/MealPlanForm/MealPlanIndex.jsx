@@ -1,7 +1,9 @@
+import "./MealPlanIndex.css";
+
 export default function MealPlanIndex({plan}) {
     return (
-        <main className="meal-table">
-            <table>
+        <div className="table-responsive table-condensed table-bordered">
+            <table className="table">
             <thead>
                 <tr>
                 <th>Sun</th>
@@ -23,6 +25,6 @@ export default function MealPlanIndex({plan}) {
                 </tr>
             </thead>
             </table>
-        </main>
+        </div>
     );
 }

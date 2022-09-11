@@ -80,7 +80,7 @@ export default function App() {
             <Route path='/mealplan' element={<MealPlanPage tags={tags}/>} />
             <Route path='/tags' element={<TagsPage tags={tags} handleAddTag={handleAddTag} handleDelete={handleDelete} setTags={setTags}/>} />
           </Routes>
-          <footer className="panel-footer">&copy; 2022 abubble</footer>
+          <footer className="footer">&copy; 2022 abubble</footer>
         </>
         :
         <AuthPage setUser={setUser} />
