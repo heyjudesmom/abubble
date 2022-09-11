@@ -40,7 +40,7 @@ export default class SignUpForm extends Component {
         <div className="w-50">
           <form autoComplete="off" onSubmit={this.handleSubmit}>
             <h3>sign up!</h3>
-            <div className='form-group row'>
+            <div className='form-group'>
               <label>name</label>
               <input type="text" className="form-control" name="name" value={this.state.name} onChange={this.handleChange} required />
             </div>

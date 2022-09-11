@@ -40,6 +40,7 @@ export default function App() {
     const updatedTags = tags.filter((t) => t._id !== tag._id)
     setTags(updatedTags);
   }
+  
   if (!tags) return;
   
   return (

@@ -9,16 +9,26 @@ import * as todosAPI from '../../utilities/todos-api';
 export default function DashboardPage({user}) {
   //tags
   const [tags, setTags] = useState([]);
-  const [showSort, setShowSort] = useState(false)
-  const [sortBy, setSortBy] = useState(null);
-  
-  function sortByTag(evt) {
-    setSortBy(evt.target.value);  
-    setShowSort(true);
-    console.log(`sorting by ${evt.target.value}`)
+  const [sort, setSort] = useState(false)
+
+  async function handleTagClick(evt) {
+    setSort(!sort);
+    if (sort === false) {
+      const userTags = await tagsAPI.getAll();
+      setTags(userTags);
+      return;
+    }
+    else {
+      let sortByTags = tags.filter(function(t, idx) {
+        return t._id === evt.target.value;
+      });
+      console.log("sortBy",sortByTags);
+      setTags(sortByTags);
+    }
   }
 
   useEffect(function () {
+    setSort(true)
     async function getTags() {
       if(!user) return;
       const userTags = await tagsAPI.getAll();
@@ -27,7 +37,7 @@ export default function DashboardPage({user}) {
     getTags();
   }, [user]);
 
-  const tagArr = tags.map((t, idx) => <button className="btn " onClick={sortByTag} value={t._id} key={idx} style={{backgroundColor: `${t.color}`}}>
+  const tagArr = tags.map((t, idx) => <button className="btn " onClick={handleTagClick} value={t._id} key={idx} style={{backgroundColor: `${t.color}`}}>
   {t.text}
 </button>)
 
@@ -70,7 +80,7 @@ const [appts, setAppts] = useState([]);
     }, []) 
 
     const mealPlan = (
-      <table className="table table-bordered table-responsive table-condensed" id="table">
+      <table className="table table-bordered table-condensed table-responsive" id="table">
         <thead>
             <tr>
               <th>sun</th>
@@ -201,7 +211,8 @@ const [appts, setAppts] = useState([]);
           <div className="col"><h3>to do list.</h3>
           {
             todosArr.length ?
-            {todosArr}
+            <>{todosArr}</>
+            
             :
             <h5>nothing to do.</h5>
           }
