@@ -34,21 +34,29 @@ export default function EditChoreForm({ handleUpdate, tags, c, setShowEditForm, 
 
     return (
         <>
-        <h1>Edit Form</h1>
       <form onSubmit={handleSubmit}>
-        <label>Text: </label>
-        <input
-          name="text"
-          value={newChore.text}
-          onChange={handleChange}
-          required
-          placeholder={c.text}
-        />
-        <label>Tags:</label>
-        <select multiple={true} name="tags" value={newChore.tags} onChange={handleChange}>
-          {options}
-        </select>
-        <span></span><button type="submit">Save Chore</button>
+        <h3>edit</h3>
+        <div className="form-group">
+          <label>Text: </label>
+          <input
+            type="text"
+            className="form-control"
+            name="text"
+            value={newChore.text}
+            onChange={handleChange}
+            required
+            placeholder={c.text}
+          />
+        </div>
+        <div className="form-group">
+          <label>Tags:</label>
+          <select className="form-control" multiple={true} name="tags" value={newChore.tags} onChange={handleChange}>
+            {options}
+          </select>
+        </div>
+        <div style={{marginTop:"2em"}}>
+          <button className="btn btn-default btn-success"type="submit">Save Chore</button>
+        </div>
       </form>
     </>
     );

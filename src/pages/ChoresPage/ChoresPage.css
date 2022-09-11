@@ -1,7 +1,6 @@
-#ctr-50 {
-    width: 50%;
+.flex-ctr-ctr {
     display: flex;
-    flex-direction: column;
+    flex-direction: center;
     justify-content: center;
     align-items: center;
 }

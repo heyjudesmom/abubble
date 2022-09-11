@@ -2,7 +2,7 @@ import ChoreList from "../../components/ChoreList/ChoreList";
 import NewChoreForm from "../../components/NewChoreForm/NewChoreForm";
 import * as choresAPI from "../../utilities/chores-api"
 import {useState, useEffect} from 'react';
-import EditChoreForm from "../../components/EditChoreForm/EditChoreForm";
+import "./ChoresPage.css";
 export default function ChoresPage({tags}) {
   const [chores, setChores] = useState([]);
   const [showEditForm, setShowEditForm] = useState(false)
@@ -27,7 +27,6 @@ export default function ChoresPage({tags}) {
   }
 
   async function handleUpdate(formData, id) {
-    console.log(formData)
     const chores = await choresAPI.update(formData, id);
     setChores(chores);
   }

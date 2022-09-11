@@ -190,7 +190,7 @@ const [appts, setAppts] = useState([]);
           <div className="col"><h3>chores.</h3> 
           {
             choresArr.length ?
-            {choresArr}
+            <div>{choresArr}</div>
             :
             <h5>no chores.</h5>
           }

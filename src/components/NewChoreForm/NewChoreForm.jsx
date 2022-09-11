@@ -33,19 +33,28 @@ export default function NewChoreForm({ handleAddChore, tags }) {
 
     return (
         <>
-      <form onSubmit={handleSubmit}>
-        <label>Text: </label>
-        <input
-          name="text"
-          value={newChore.text}
-          onChange={handleChange}
-          required
-        />
-        <label>Tags:</label>
-        <select multiple={true} name="tags" value={newChore.tags} onChange={handleChange}>
-          {options}
-        </select>
-        <span></span><button type="submit">Add Chore</button>
+      <form onSubmit={handleSubmit} id="ctr-50">
+        <h3>new chore</h3>
+        <div className="form-group">
+          <label>Text: </label>
+          <input
+            type="text"
+            className="form-control" 
+            name="text"
+            value={newChore.text}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label>Tags:</label>
+          <select className="form-control" multiple={true} name="tags" value={newChore.tags} onChange={handleChange}>
+            {options}
+          </select>
+        </div>
+        <div style={{marginTop:"2em"}}>
+          <button className="btn btn-default" type="submit">Add Chore</button>
+        </div>
       </form>
     </>
     );
