@@ -1,13 +1,4 @@
-/* .meal-form {
+.form-group {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-between;
 }
-
-.meal-table {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items:center;
-
-} */

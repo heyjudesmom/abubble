@@ -33,7 +33,7 @@ export default function ChoresPage({tags}) {
 
     return (
       <main>
-        <h1>ChoresPage</h1>
+        <h1>chores.</h1>
         <main className="flex-ctr-ctr">
           <ChoreList chores={chores} tags={tags} handleDelete={handleDelete} handleUpdate={handleUpdate} setShowEditForm={setShowEditForm} showEditForm={showEditForm}/>
           <NewChoreForm handleAddChore={handleAddChore} tags={tags} />

@@ -24,21 +24,29 @@ export default function NewTagForm({ handleAddTag }) {
     return (
         <>
       <form onSubmit={handleSubmit}>
-        <label>Title: </label>
+      <h3>new tag</h3>
+      <div className="form-group">
+        <label>text: </label>
         <input
           name="text"
+          type="text"
+          className="form-control"
           value={newTag.text}
           onChange={handleChange}
           required
         />
-        <label>Color</label>
+        </div>
+        <div className="form-group"> 
+        <label>color</label>
         <input
           type="color"
+          className="form-control"
           name="color"
           value={newTag.color}
           onChange={handleChange}
         />
-        <span></span><button>Add Tag</button>
+        </div>
+        <button className="btn btn-default">Add Tag</button>
       </form>
     </>
     );

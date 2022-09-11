@@ -7,15 +7,15 @@ export default function AuthPage({ setUser }) {
   
   return (
     <main>
-      <h1>AuthPage</h1>
-      <button onClick={() => setShowLogin(!showLogin)}>
-        {showLogin ? 'Sign Up' : 'Log In'}
-      </button>
+      <h1>welcome to abubble.</h1>
       { showLogin ?
           <LoginForm setUser={setUser} />
           :
           <SignUpForm setUser={setUser} />
       }
+      <button className="btn btn-default" onClick={() => setShowLogin(!showLogin)}>
+        {showLogin ? 'sign up' : 'log in'}
+      </button>
     </main>
   );
 }

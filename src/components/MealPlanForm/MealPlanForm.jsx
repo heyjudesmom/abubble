@@ -42,44 +42,78 @@ export default function MealPlanForm({ handleAddPlan, tags, plan, setShowPlan })
     }
 
     return (
-        <main className="meal-form">
-            <form onSubmit={handleSubmit}>
-                <label>Sunday</label><input
-                name="sun" 
-                value={newPlan.sun}
-                onChange={handleChange}
-                type="text" />
-                <label>Monday</label><input
-                name="mon" 
-                value={newPlan.mon}
-                onChange={handleChange}
-                type="text" />
-                <label>Tuesday</label><input
-                name="tue" 
-                value={newPlan.tue}
-                onChange={handleChange}
-                type="text" />
-                <label>Wednesday</label><input
-                name="wed" 
-                value={newPlan.wed}
-                onChange={handleChange}
-                type="text" />
-                <label>Thursday</label><input
-                name="thu" 
-                value={newPlan.thu}
-                onChange={handleChange}
-                type="text" />
-                <label>Friday</label><input
-                name="fri" 
-                value={newPlan.fri}
-                onChange={handleChange}
-                type="text" />
-                <label>Saturday</label><input
-                name="sat" 
-                value={newPlan.sat}
-                onChange={handleChange}
-                type="text" />
-                <button type="submit">Update Meal Plan</button>
+        <main>
+            <form onSubmit={handleSubmit} className="meal-form">
+                <div className="form-group">
+                    <label>sunday</label>
+                    <input
+                    name="sun" 
+                    value={newPlan.sun}
+                    onChange={handleChange}
+                    type="text"
+                    className="form-control" />
+                </div>
+                <div className="form-group">
+                    <label>monday</label>
+                    <input
+                    name="mon" 
+                    value={newPlan.mon}
+                    onChange={handleChange}
+                    type="text"
+                    className="form-control" 
+                    />
+                </div>
+                <div className="form-group">
+                    <label>tuesday</label>
+                    <input
+                    name="tue" 
+                    value={newPlan.tue}
+                    onChange={handleChange}
+                    type="text"
+                    className="form-control" 
+                    />
+                </div>
+                <div className="form-group">
+                    <label>wednesday</label>
+                    <input
+                    name="wed" 
+                    value={newPlan.wed}
+                    onChange={handleChange}
+                    type="text"
+                    className="form-control" 
+                    />
+                </div>
+                <div className="form-group">
+                    <label>thursday</label>
+                    <input
+                    name="thu" 
+                    value={newPlan.thu}
+                    onChange={handleChange}
+                    type="text"
+                    className="form-control" 
+                    />
+                </div>
+                <div className="form-group">
+                    <label>friday</label>
+                    <input
+                    name="fri" 
+                    value={newPlan.fri}
+                    onChange={handleChange}
+                    type="text"
+                    className="form-control" 
+                    />
+                </div>
+                <div className="form-group">
+                    <label>saturday</label>
+                    <input
+                    name="sat" 
+                    value={newPlan.sat}
+                    onChange={handleChange}
+                    type="text"
+                    className="form-control" 
+                    />
+                </div>
+                <button className="btn btn-primary" type="submit">save meal plan</button>
             </form>
         </main>
     );

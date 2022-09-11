@@ -11,7 +11,7 @@ export default function ChoreList({ chores, tags, handleDelete, handleUpdate, sh
     })
     
     return (
-        <div className="grid-ctr-list">
+        <div>
             {choresArr}
         </div>
     );

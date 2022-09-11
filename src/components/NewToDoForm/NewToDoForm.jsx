@@ -36,24 +36,28 @@ export default function NewToDoForm({ handleAddToDo, tags }) {
     return (
         <>
       <form onSubmit={handleSubmit}>
-        <label>Text: </label>
-        <input
-          name="text"
-          value={newToDo.text}
-          onChange={handleChange}
-          required
-        />
+        <div className="form-group">
+          <label>text: </label>
+          <input
+            name="text"
+            value={newToDo.text}
+            onChange={handleChange}
+            required
+            type="text"
+            className="form-control"
+          />
+        </div>
         { options.length ? 
-        <>
-          <label>Tags:</label>
+        <div className="form-group">
+          <label>tags:</label>
           <select multiple={true} name="tags" value={newToDo.tags} onChange={handleChange}>
             {options}
           </select>
-        </>
+        </div>
         :
         ""
         }
-        <span></span><button type="submit">Add to list</button>
+        <button className="btn btn-default"type="submit">Add to list</button>
       </form>
     </>
     );

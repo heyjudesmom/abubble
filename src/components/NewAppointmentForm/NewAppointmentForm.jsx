@@ -82,7 +82,7 @@ export default function NewAppointmentForm({ handleAddAppt, tags }) {
         <div className="form-group col-md-2">
           <label>tags:</label>
           <div>
-            <select style={{width:"90%"}} multiple={true} id="tags" name="tags" value={newAppt.tags} onChange={handleChange}>
+            <select className="form-control" style={{width:"90%"}} multiple={true} id="tags" name="tags" value={newAppt.tags} onChange={handleChange}>
               {options}
             </select>
           </div>

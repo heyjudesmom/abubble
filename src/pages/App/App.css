@@ -14,3 +14,10 @@
   height: 5vh;
   background-color: #d5ecec;
 }
+
+.flex-ctr-ctr {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

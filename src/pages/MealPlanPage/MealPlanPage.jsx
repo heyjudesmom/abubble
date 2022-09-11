@@ -31,7 +31,7 @@ export default function MealPlanPage({tags}) {
           :
           <MealPlanForm tags={tags} handleAddPlan={handleAddPlan} plan={plan} setShowPlan={setShowPlan}/>
         }
-        <button onClick={() => setShowPlan(!showPlan)}>
+        <button className="btn btn-default"onClick={() => setShowPlan(!showPlan)}>
         {showPlan ? 'new plan' : 'cancel'}
         </button>
       </main>

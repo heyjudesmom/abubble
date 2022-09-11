@@ -10,18 +10,18 @@ export default function ChoreItem({ c, index, handleDelete, tags, handleUpdate, 
     const tagDivs = tagObjs.map((t, idx) => <button className="btn btn-default" key={idx} style={{backgroundColor: `${t.color}`}} onClick={function(){alert('Clicked')}}>{t.text}</button>)
 
     return (
-        <div className="page-list-item">
+        <div>
             {showEditForm ? 
             <>
                 <EditChoreForm c={c} handleUpdate={handleUpdate} tags={tags} setShowEditForm={setShowEditForm} showEditForm={showEditForm}/> 
-                <button className="btn btn-default" onClick={() => setShowEditForm(!showEditForm)}>Cancel</button>
+                <button className="btn btn-default" onClick={() => setShowEditForm(!showEditForm)}>cancel</button>
             </>
             : 
             <>
                 <div>{c.text}</div> 
                 <div>{tagDivs}</div>
-                <button className="btn btn-default btn-success" onClick={() => setShowEditForm(!showEditForm)}>Edit</button>
-                <button className="btn btn-default btn-warning" onClick={() => handleDelete(c._id)}>Delete</button>
+                <button className="btn btn-default btn-success" onClick={() => setShowEditForm(!showEditForm)}>edit</button>
+                <button className="btn btn-default btn-warning" onClick={() => handleDelete(c._id)}>delete</button>
             </>
             }
         </div>

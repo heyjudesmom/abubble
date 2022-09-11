@@ -37,7 +37,7 @@ export default function EditChoreForm({ handleUpdate, tags, c, setShowEditForm, 
       <form onSubmit={handleSubmit}>
         <h3>edit</h3>
         <div className="form-group">
-          <label>Text: </label>
+          <label>text: </label>
           <input
             type="text"
             className="form-control"
@@ -49,7 +49,7 @@ export default function EditChoreForm({ handleUpdate, tags, c, setShowEditForm, 
           />
         </div>
         <div className="form-group">
-          <label>Tags:</label>
+          <label>tags:</label>
           <select className="form-control" multiple={true} name="tags" value={newChore.tags} onChange={handleChange}>
             {options}
           </select>

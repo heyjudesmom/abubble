@@ -2,17 +2,17 @@ import "./MealPlanIndex.css";
 
 export default function MealPlanIndex({plan}) {
     return (
-        <div className="table-responsive table-condensed table-bordered">
-            <table className="table">
+        <div>
+            <table className="table table-responsive table-condensed table-bordered">
             <thead>
                 <tr>
-                <th>Sun</th>
-                <th>Mon</th>
-                <th>Tue</th>
-                <th>Wed</th>
-                <th>Thu</th>
-                <th>Fri</th>
-                <th>Sat</th>
+                <th>sun</th>
+                <th>mon</th>
+                <th>tue</th>
+                <th>wed</th>
+                <th>thu</th>
+                <th>fri</th>
+                <th>sat</th>
                 </tr>
                 <tr>
                 <td>{plan.sun}</td>

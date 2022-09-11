@@ -36,7 +36,7 @@ export default function NewChoreForm({ handleAddChore, tags }) {
       <form onSubmit={handleSubmit} id="ctr-50">
         <h3>new chore</h3>
         <div className="form-group">
-          <label>Text: </label>
+          <label>text: </label>
           <input
             type="text"
             className="form-control" 
@@ -47,7 +47,7 @@ export default function NewChoreForm({ handleAddChore, tags }) {
           />
         </div>
         <div className="form-group">
-          <label>Tags:</label>
+          <label>tags:</label>
           <select className="form-control" multiple={true} name="tags" value={newChore.tags} onChange={handleChange}>
             {options}
           </select>

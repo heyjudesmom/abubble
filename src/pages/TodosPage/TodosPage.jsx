@@ -26,7 +26,7 @@ export default function TodosPage({tags}) {
   }
     return (
       <main>
-        <h1>ToDosPage</h1>
+        <h1>to do.</h1>
         <main className="flex-ctr-ctr">
           <ToDoList todos={todos} tags={tags} handleDelete={handleDelete}/>
           <NewToDoForm handleAddToDo={handleAddToDo} tags={tags}/>
