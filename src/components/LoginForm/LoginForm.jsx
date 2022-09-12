@@ -29,16 +29,15 @@ export default function LoginForm({ setUser }) {
   }
 
   return (
-    <div className='img-background'>
-      <div className='w-50'>
-        <div className="form-container">
+      <div>
+        <div className="form-container-login">
           <form autoComplete="off" onSubmit={handleSubmit}>
             <h3>log in!</h3>
-            <div className='form-group'>
+            <div>
               <label>email</label>
               <input type="text" className="form-control" name="email" value={credentials.email} onChange={handleChange} required />
             </div>
-            <div className='form-group'>
+            <div>
               <label>password</label>
               <input className="form-control" type="password" name="password" value={credentials.password} onChange={handleChange} required />
             </div>
@@ -47,6 +46,5 @@ export default function LoginForm({ setUser }) {
         </div>
         <p className="error-message">&nbsp;{error}</p>
       </div>
-    </div>
   );
 }

@@ -1,0 +1,52 @@
+.container {
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    background-color: aliceblue;
+}
+.row:before {
+    display: none;
+    content: none;
+}
+.row {
+    display: grid;
+    grid-template-columns: 7fr 5fr;
+}
+
+.col-1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.col-2 {
+    padding: 5em;
+    margin-right: 5em;
+    background-image: url(https://i.imgur.com/DeVWcJF.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position:center;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items:center;
+}
+
+.about {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:flex-start;
+}
+
+@media only screen and (max-width:768px) {
+    .row {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .col-2 {
+        margin-right: 0;
+    }
+}
