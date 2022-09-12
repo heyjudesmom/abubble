@@ -42,7 +42,7 @@ export default function NewAppointmentForm({ handleAddAppt, tags }) {
       <form onSubmit={handleSubmit}>
         <h3>new appointment</h3> <br />
         <div className="row">
-          <div className="form-group col-md-3">
+          <div>
             <label>title: </label>
               <input
                 type="text"
@@ -55,7 +55,7 @@ export default function NewAppointmentForm({ handleAddAppt, tags }) {
               />
           </div>
 
-        <div className="form-group col-md-3">
+        <div>
           <label>date/time: </label>
             <input
               id="date"
@@ -66,7 +66,7 @@ export default function NewAppointmentForm({ handleAddAppt, tags }) {
               onChange={handleChange}
             />
         </div>
-        <div className="form-group col-md-2">
+        <div>
           <label>duration: </label>
           <input
             name="duration"
@@ -79,15 +79,16 @@ export default function NewAppointmentForm({ handleAddAppt, tags }) {
             min="0"
           />
         </div>
-        <div className="form-group col-md-2">
+        <div>
           <label>tags:</label>
           <div>
             <select className="form-control" style={{width:"90%"}} multiple={true} id="tags" name="tags" value={newAppt.tags} onChange={handleChange}>
               {options}
             </select>
           </div>
+        <div style={{marginTop:"2em"}}>
+          <button type="submit" className="btn btn-success">add appointment</button></div>
         </div>
-        <div className="form-group" style={{marginTop:"2em"}}><button type="submit" className="btn btn-default">add appointment</button></div>
         </div>
       </form>
     </>

@@ -46,7 +46,7 @@ export default function NewTagForm({ handleAddTag }) {
           onChange={handleChange}
         />
         </div>
-        <button className="btn btn-default">Add Tag</button>
+        <button className="btn btn-success">add tag</button>
       </form>
     </>
     );

@@ -113,7 +113,7 @@ export default function MealPlanForm({ handleAddPlan, tags, plan, setShowPlan })
                     className="form-control" 
                     />
                 </div>
-                <button className="btn btn-primary" type="submit">save meal plan</button>
+                <button className="btn btn-success" type="submit">save meal plan</button>
             </form>
         </main>
     );

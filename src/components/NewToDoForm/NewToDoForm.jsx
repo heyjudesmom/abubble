@@ -11,7 +11,7 @@ export default function NewToDoForm({ handleAddToDo, tags }) {
 
     const options = tags.map(function(t, idx) {
       return(
-      <option key={idx} value={idx} style={{backgroundColor:t.color}}>{t.text}</option>
+      <option className="form-control" key={idx} value={idx} style={{backgroundColor:t.color}}>{t.text}</option>
       );
     })
 
@@ -51,14 +51,14 @@ export default function NewToDoForm({ handleAddToDo, tags }) {
         { options.length ? 
         <div className="form-group">
           <label>tags:</label>
-          <select multiple={true} name="tags" value={newToDo.tags} onChange={handleChange}>
+          <select className="form-control" multiple={true} name="tags" value={newToDo.tags} onChange={handleChange}>
             {options}
           </select>
         </div>
         :
         ""
         }
-        <button className="btn btn-default"type="submit">Add to list</button>
+        <button className="btn btn-success"type="submit">add to list</button>
       </form>
     </>
     );

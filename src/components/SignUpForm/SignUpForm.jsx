@@ -56,7 +56,7 @@ export default class SignUpForm extends Component {
               <label>confirm</label>
               <input type="password" className="form-control" name="confirm" value={this.state.confirm} onChange={this.handleChange} required />
             </div>
-            <button type="submit" className="btn btn-primary" disabled={disable}>sign up</button>
+            <button type="submit" className="btn btn-success" disabled={disable}>sign up</button>
           </form>
         </div>
         <p className="error-message">&nbsp;{this.state.error}</p>

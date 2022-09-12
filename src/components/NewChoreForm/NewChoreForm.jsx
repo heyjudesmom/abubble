@@ -10,7 +10,7 @@ export default function NewChoreForm({ handleAddChore, tags }) {
     if (!tags) return;
     const options = tags.map(function(t, idx) {
       return(
-      <option key={idx} value={idx} style={{backgroundColor:t.color}}>{t.text}</option>
+      <option className="form-control" key={idx} value={idx} style={{backgroundColor:t.color}}>{t.text}</option>
       );
     })
 
@@ -53,7 +53,7 @@ export default function NewChoreForm({ handleAddChore, tags }) {
           </select>
         </div>
         <div style={{marginTop:"2em"}}>
-          <button className="btn btn-default" type="submit">Add Chore</button>
+          <button className="btn btn-success" type="submit">add chore</button>
         </div>
       </form>
     </>
