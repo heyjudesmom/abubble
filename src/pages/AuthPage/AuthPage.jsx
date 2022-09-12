@@ -6,16 +6,16 @@ export default function AuthPage({ setUser }) {
   const [showLogin, setShowLogin] = useState(true);
   
   return (
-    <main>
+    <main className='background-img'>
       <h1>welcome to abubble.</h1>
+      <button className="btn btn-default" onClick={() => setShowLogin(!showLogin)}>
+        {showLogin ? 'sign up' : 'log in'}
+      </button>
       { showLogin ?
           <LoginForm setUser={setUser} />
           :
           <SignUpForm setUser={setUser} />
       }
-      <button className="btn btn-default" onClick={() => setShowLogin(!showLogin)}>
-        {showLogin ? 'sign up' : 'log in'}
-      </button>
     </main>
   );
 }

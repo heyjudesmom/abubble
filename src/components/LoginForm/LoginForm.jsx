@@ -29,22 +29,24 @@ export default function LoginForm({ setUser }) {
   }
 
   return (
-    <div className='w-50'>
-      <div className="form-container">
-        <form autoComplete="off" onSubmit={handleSubmit}>
-          <h3>log in!</h3>
-          <div className='form-group'>
-            <label>email</label>
-            <input type="text" className="form-control" name="email" value={credentials.email} onChange={handleChange} required />
-          </div>
-          <div className='form-group'>
-            <label>password</label>
-            <input className="form-control" type="password" name="password" value={credentials.password} onChange={handleChange} required />
-          </div>
-          <button className="btn btn-primary" type="submit">log in</button>
-        </form>
+    <div className='img-background'>
+      <div className='w-50'>
+        <div className="form-container">
+          <form autoComplete="off" onSubmit={handleSubmit}>
+            <h3>log in!</h3>
+            <div className='form-group'>
+              <label>email</label>
+              <input type="text" className="form-control" name="email" value={credentials.email} onChange={handleChange} required />
+            </div>
+            <div className='form-group'>
+              <label>password</label>
+              <input className="form-control" type="password" name="password" value={credentials.password} onChange={handleChange} required />
+            </div>
+            <button className="btn btn-primary" type="submit">log in</button>
+          </form>
+        </div>
+        <p className="error-message">&nbsp;{error}</p>
       </div>
-      <p className="error-message">&nbsp;{error}</p>
     </div>
   );
 }

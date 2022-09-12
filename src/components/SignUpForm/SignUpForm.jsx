@@ -37,8 +37,16 @@ export default class SignUpForm extends Component {
     const disable = this.state.password !== this.state.confirm;
     return (
       <div>
+        <p>Is your brain abubble with the happenings of a busy life?</p>
+        <p>Do you ever forget:</p>
+        <ul>
+          <li>What's for dinner this week?</li>
+          <li>Are there any upcoming appointments to remember?</li>
+          <li>Who's turn is it to take out the garbage?</li>
+        </ul>
+        <p>Sign up to organize your thoughts all in one spot with abubble!</p>
         <div className="w-50">
-          <form autoComplete="off" onSubmit={this.handleSubmit}>
+          <form autoComplete="off" onSubmit={this.handleSubmit} >
             <h3>sign up!</h3>
             <div className='form-group'>
               <label>name</label>

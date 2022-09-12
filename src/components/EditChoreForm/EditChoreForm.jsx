@@ -55,7 +55,7 @@ export default function EditChoreForm({ handleUpdate, tags, c, setShowEditForm, 
           </select>
         </div>
         <div style={{marginTop:"2em"}}>
-          <button className="btn btn-default btn-success"type="submit">Save Chore</button>
+          <button className="btn btn-default"type="submit">Save Chore</button>
         </div>
       </form>
     </>
