@@ -5,7 +5,7 @@ import {useState, useEffect} from 'react';
 import "./ChoresPage.css";
 export default function ChoresPage({tags}) {
   const [chores, setChores] = useState([]);
-  const [showEditForm, setShowEditForm] = useState(false)
+  const [showEditForm, setShowEditForm] = useState("")
 
   useEffect(function () {
     async function getChores() {

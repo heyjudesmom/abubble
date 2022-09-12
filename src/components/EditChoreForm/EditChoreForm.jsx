@@ -10,7 +10,7 @@ export default function EditChoreForm({ handleUpdate, tags, c, setShowEditForm, 
     if (!tags) return;
     const options = tags.map(function(t, idx) {
       return(
-      <option key={idx} value={idx} style={{backgroundColor:t.color}}>{t.text}</option>
+      <option className="form-control" key={idx} value={idx} style={{backgroundColor:t.color}}>{t.text}</option>
       );
     })
 
@@ -55,7 +55,7 @@ export default function EditChoreForm({ handleUpdate, tags, c, setShowEditForm, 
           </select>
         </div>
         <div style={{marginTop:"2em"}}>
-          <button className="btn btn-success"type="submit">Save Chore</button>
+          <button className="btn btn-success btn-sm"type="submit">Save Chore</button>
         </div>
       </form>
     </>

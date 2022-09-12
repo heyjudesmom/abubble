@@ -7,7 +7,7 @@ export default function ToDoItem({ t, index, handleDelete, tags }) {
     
     return (
         <div>
-            <div>{t.text}</div> 
+            <h2>{t.text}</h2> 
             <div>{tagDivs}</div>
             <button className="btn btn-xs" onClick={() => handleDelete(t._id)}>X</button>
         </div>

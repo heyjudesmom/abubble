@@ -2,25 +2,27 @@ import { useState } from "react";
 import EditChoreForm from "../EditChoreForm/EditChoreForm";
 
 export default function ChoreItem({ c, index, handleDelete, tags, handleUpdate, setShowEditForm, showEditForm }) {
-    const [showUpdateForm, setShowUpdateForm] = useState(false);
-    const [formData, setFormData] = useState(c);
+
+    function handleClick() {
+        setShowEditForm(c._id)
+    }
 
     const tagIdArr = c.tags;
     const tagObjs = tags.filter((t) => tagIdArr.includes(t._id))
-    const tagDivs = tagObjs.map((t, idx) => <button className="btn btn-default" key={idx} style={{backgroundColor: `${t.color}`}} onClick={function(){alert('Clicked')}}>{t.text}</button>)
+    const tagDivs = tagObjs.map((t, idx) => <button className="btn btn-sm" key={idx} style={{backgroundColor: `${t.color}`}} onClick={function(){alert('Clicked')}}>{t.text}</button>)
 
     return (
         <div>
-            {showEditForm ? 
+            {showEditForm === c._id ? 
             <>
                 <EditChoreForm c={c} handleUpdate={handleUpdate} tags={tags} setShowEditForm={setShowEditForm} showEditForm={showEditForm}/> 
-                <button className="btn btn-default" onClick={() => setShowEditForm(!showEditForm)}>cancel</button>
+                <button className="btn btn-xs" onClick={() => setShowEditForm("")}>cancel</button>
             </>
             : 
             <>
-                <div>{c.text}</div> 
+                <h2>{c.text}</h2> 
                 <div>{tagDivs}</div>
-                <button className="btn btn-default btn-xs" onClick={() => setShowEditForm(!showEditForm)}>edit</button>
+                <button className="btn btn-default btn-xs" onClick={handleClick}>edit</button>
                 <button className="btn btn-default btn-xs" onClick={() => handleDelete(c._id)}>delete</button>
             </>
             }
