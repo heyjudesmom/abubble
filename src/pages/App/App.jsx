@@ -81,7 +81,7 @@ export default function App() {
             {/* Route components in here */}
             <Route path='/' element={<DashboardPage tags={tags} user={user}/>} />
             <Route path='/appointments' element={<AppointmentsPage tags={tags} itemizeTags={itemizeTags}/>} />
-            <Route path='/chores' element={<ChoresPage tags={tags}/>} />
+            <Route path='/chores' element={<ChoresPage tags={tags} itemizeTags={itemizeTags}/>} />
             <Route path='/todos' element={<TodosPage tags={tags}/>} />
             <Route path='/mealplan' element={<MealPlanPage tags={tags}/>} />
             <Route path='/tags' element={<TagsPage tags={tags} handleAddTag={handleAddTag} handleDelete={handleDelete} setTags={setTags}/>} />

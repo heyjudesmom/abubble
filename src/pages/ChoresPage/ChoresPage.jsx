@@ -3,7 +3,7 @@ import NewChoreForm from "../../components/NewChoreForm/NewChoreForm";
 import * as choresAPI from "../../utilities/chores-api"
 import {useState, useEffect} from 'react';
 import "./ChoresPage.css";
-export default function ChoresPage({tags}) {
+export default function ChoresPage({tags, itemizeTags}) {
   const [chores, setChores] = useState([]);
   const [showEditForm, setShowEditForm] = useState("")
 
@@ -35,7 +35,7 @@ export default function ChoresPage({tags}) {
       <main>
         <h1>chores.</h1>
         <main className="flex-ctr-ctr">
-          <ChoreList chores={chores} tags={tags} handleDelete={handleDelete} handleUpdate={handleUpdate} setShowEditForm={setShowEditForm} showEditForm={showEditForm}/>
+          <ChoreList chores={chores} tags={tags} handleDelete={handleDelete} handleUpdate={handleUpdate} setShowEditForm={setShowEditForm} showEditForm={showEditForm} itemizeTags={itemizeTags}/>
           <NewChoreForm handleAddChore={handleAddChore} tags={tags} />
         </main>
     </main>
