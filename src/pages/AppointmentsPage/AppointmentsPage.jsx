@@ -4,7 +4,7 @@ import AppointmentList from "../../components/AppointmentList/AppointmentList";
 import * as apptsAPI from '../../utilities/appointments-api';
 import { useEffect, useState } from "react";
 
-export default function AppointmentsPage({tags}) {
+export default function AppointmentsPage({tags, itemizeTags}) {
   const [appts, setAppts] = useState([]);
   useEffect(function () {
     async function getAppts() {
@@ -29,7 +29,7 @@ export default function AppointmentsPage({tags}) {
     <main>
       <h1>appointments.</h1>
       <main className="ctr">
-        <AppointmentList appts={appts} tags={tags} handleDelete={handleDelete}/>
+        <AppointmentList appts={appts} tags={tags} handleDelete={handleDelete} itemizeTags={itemizeTags}/>
         <NewAppointmentForm handleAddAppt={handleAddAppt} tags={tags}/>
       </main>
     </main>

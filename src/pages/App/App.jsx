@@ -41,8 +41,13 @@ export default function App() {
     setTags(updatedTags);
   }
   
-  if (!tags) return;
-  
+  function itemizeTags(item) {
+    const tagIdArr = item.tags;
+    const tagObjs = tags.filter((t) => tagIdArr.includes(t._id))
+    const tagDivs = tagObjs.map((t, idx) => <button class="btn btn-default btn-xs" key={idx} style={{backgroundColor: `${t.color}`}}>{t.text}</button>)
+    return tagDivs
+  }
+
   return (
     <main className="App">
       { user ?
@@ -75,7 +80,7 @@ export default function App() {
           <Routes>
             {/* Route components in here */}
             <Route path='/' element={<DashboardPage tags={tags} user={user}/>} />
-            <Route path='/appointments' element={<AppointmentsPage tags={tags}/>} />
+            <Route path='/appointments' element={<AppointmentsPage tags={tags} itemizeTags={itemizeTags}/>} />
             <Route path='/chores' element={<ChoresPage tags={tags}/>} />
             <Route path='/todos' element={<TodosPage tags={tags}/>} />
             <Route path='/mealplan' element={<MealPlanPage tags={tags}/>} />
