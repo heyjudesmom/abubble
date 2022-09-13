@@ -1,4 +1,4 @@
-import "./AppointmentsPage.css"
+import "./AppointmentsPage.css";
 import NewAppointmentForm from "../../components/NewAppointmentForm/NewAppointmentForm";
 import AppointmentList from "../../components/AppointmentList/AppointmentList";
 import * as apptsAPI from '../../utilities/appointments-api';
@@ -28,10 +28,10 @@ export default function AppointmentsPage({tags, itemizeTags}) {
   return (
     <main>
       <h1>appointments.</h1>
-      <main className="ctr">
+      <div className="ctr">
         <AppointmentList appts={appts} tags={tags} handleDelete={handleDelete} itemizeTags={itemizeTags}/>
         <NewAppointmentForm handleAddAppt={handleAddAppt} tags={tags}/>
-      </main>
+      </div>
     </main>
   );
 }
