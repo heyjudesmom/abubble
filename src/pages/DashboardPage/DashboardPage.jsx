@@ -181,12 +181,12 @@ const [appts, setAppts] = useState([]);
 });
 
   return (
-      <div className="container-fluid" >
+      <div className="container-fluid-dash" >
         <div>
-          <span>focus: {tagArr}</span>
+          <span>focus on: {tagArr}</span>
         </div>
         <div className="row-grid">
-          <div className="">
+          <div className="feature">
             <h3>appointments.</h3>    
             {
               apptsArr.length ? 
@@ -197,7 +197,7 @@ const [appts, setAppts] = useState([]);
               <h5>no appointments.</h5>
             }    
           </div>
-          <div className="col"><h3>chores.</h3> 
+          <div className="feature"><h3>chores.</h3> 
           {
             choresArr.length ?
             <div>{choresArr}</div>
@@ -207,8 +207,8 @@ const [appts, setAppts] = useState([]);
           </div>
         </div>
         <div className="row-grid">
-          <div className="col"><h3>meal plan.</h3>{mealPlan}</div>
-          <div className="col"><h3>to do list.</h3>
+          <div className="feature"><h3>meal plan.</h3>{mealPlan}</div>
+          <div className="feature"><h3>to do list.</h3>
           {
             todosArr.length ?
             <>{todosArr}</>
