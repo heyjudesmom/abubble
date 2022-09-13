@@ -5,6 +5,10 @@ This is a family and lifestyle organizer where users can keep track of chores, m
 
 ## Screenshots
 
+![Sign Up](https://i.imgur.com/2wJ59m9.png)
+![Dashboard](https://i.imgur.com/P4xlVTx.png)
+![Tags](https://i.imgur.com/jqYXWg2.png)
+![Chores](https://i.imgur.com/BD5uy7i.png)
 
 ## :computer: Technologies Used
 ![Express](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)
@@ -32,4 +36,4 @@ This is a family and lifestyle organizer where users can keep track of chores, m
 ## Next Steps
 
 * add edit functionality to all features
-* additional styling for optimal mobile expereince
+* additional styling for optimal mobile experience
