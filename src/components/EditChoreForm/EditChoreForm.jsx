@@ -7,7 +7,6 @@ export default function EditChoreForm({ handleUpdate, tags, c, setShowEditForm, 
         text: c.text
     });
 
-    if (!tags) return;
     const options = tags.map(function(t, idx) {
       return(
       <option className="form-control" key={idx} value={idx} style={{backgroundColor:t.color}}>{t.text}</option>

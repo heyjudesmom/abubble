@@ -3,7 +3,7 @@ import NewToDoForm from "../../components/NewToDoForm/NewToDoForm";
 import * as todosAPI from "../../utilities/todos-api"
 import {useState, useEffect} from 'react';
 
-export default function TodosPage({tags}) {
+export default function TodosPage({tags, itemizeTags}) {
   const [todos, setTodos] = useState([]);
 
   useEffect(function () {
@@ -28,7 +28,7 @@ export default function TodosPage({tags}) {
       <main>
         <h1>to do.</h1>
         <main className="flex-ctr-ctr">
-          <ToDoList todos={todos} tags={tags} handleDelete={handleDelete}/>
+          <ToDoList todos={todos} tags={tags} handleDelete={handleDelete} itemizeTags={itemizeTags}/>
           <NewToDoForm handleAddToDo={handleAddToDo} tags={tags}/>
         </main>
     </main>

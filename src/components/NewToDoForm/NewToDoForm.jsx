@@ -7,8 +7,6 @@ export default function NewToDoForm({ handleAddToDo, tags }) {
         text: "",
     });
 
-   
-
     const options = tags.map(function(t, idx) {
       return(
       <option className="form-control" key={idx} value={idx} style={{backgroundColor:t.color}}>{t.text}</option>
@@ -27,7 +25,6 @@ export default function NewToDoForm({ handleAddToDo, tags }) {
       selectedTags.push(tags[parseInt(evt.target.value)]);
     }
       setSelectedTags(selectedTags)
-
       const newToDoData = { ...newToDo, [evt.target.name]: evt.target.value };
       newToDoData.tags = selectedTags;
       setNewToDo(newToDoData);

@@ -1,12 +1,12 @@
 import './ToDoList.css';
 import ToDoItem from '../ToDoItem/ToDoItem';
 
-export default function ToDoList({ todos, tags, handleDelete}) {
+export default function ToDoList({ todos, tags, handleDelete, itemizeTags}) {
     
     const todosArr = todos.map(function(t, idx) {
         return (
             <div >
-                <ToDoItem t={t} key={idx} index={idx} handleDelete={handleDelete} tags={tags}/>
+                <ToDoItem item={t} key={idx} index={idx} handleDelete={handleDelete} itemTags={itemizeTags(t)}/>
             </div>
         );
     })
