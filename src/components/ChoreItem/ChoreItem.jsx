@@ -9,7 +9,7 @@ export default function ChoreItem({ c, index, handleDelete, tags, handleUpdate, 
 
     const tagIdArr = c.tags;
     const tagObjs = tags.filter((t) => tagIdArr.includes(t._id))
-    const tagDivs = tagObjs.map((t, idx) => <button className="btn btn-sm" key={idx} style={{backgroundColor: `${t.color}`}} onClick={function(){alert('Clicked')}}>{t.text}</button>)
+    const tagDivs = tagObjs.map((t, idx) => <button className="btn btn-sm" key={idx} style={{backgroundColor: `${t.color}`}} >{t.text}</button>)
 
     return (
         <div>

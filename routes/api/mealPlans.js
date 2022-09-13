@@ -6,7 +6,5 @@ const mealsCtrl = require('../../controllers/api/mealPlans');
 router.get('/', mealsCtrl.get);
 // POST /api/meals
 router.post('/', mealsCtrl.create);
-//DELETE /api/meals/:id
-// router.delete('/:id', mealsCtrl.delete);
 
 module.exports = router;

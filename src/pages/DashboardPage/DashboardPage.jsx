@@ -60,10 +60,10 @@ const [appts, setAppts] = useState([]);
       return (
         <tbody>
           <tr>
-              <td>{a.datetime}</td>
-              <td>{a.title}</td>
-              <td><div className="btn-group">{tagDivs}</div></td>
-              <td>{a.duration} minutes</td>
+            <td>{a.datetime}</td>
+            <td>{a.title}</td>
+            {tagDivs.length ? (<td>{tagDivs}</td>) : null}
+            {a.duration ? (<td>{a.duration} minutes</td>) : ""}
           </tr> 
         </tbody>
       );

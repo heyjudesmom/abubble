@@ -3,7 +3,6 @@ const MealPlan = require('../../models/mealPlan');
 module.exports = {
     get,
     create,
-    // delete: deletePlan,
 }
 
 async function get(req, res) {
@@ -19,12 +18,3 @@ async function create(req, res) {
      const plan = await MealPlan.create(req.body);
     res.json(plan);
 }
-
-// async function deletePlan(req, res, next) {
-//     try {
-//         const deletedPlan = await Plan.findOneAndDelete({'_id': req.params.id, 'user': req.user._id});
-//         res.json(deletedPlan);
-//     } catch (err) {
-//         return next(err);
-//     }
-// }

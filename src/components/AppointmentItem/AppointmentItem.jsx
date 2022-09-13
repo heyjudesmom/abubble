@@ -10,8 +10,8 @@ export default function AppointmentItem({ a, index, handleDelete, tags }) {
         <tr>
             <td>{a.datetime}</td>
             <td>{a.title}</td>
-            <td><div class="btn-group">{tagDivs}</div></td>
-            <td>{a.duration} minutes</td>
+            {a.duration ? (<td>{a.duration} minutes</td>) : <td></td>}
+            {tagDivs.length ? (<td>{tagDivs}</td>) : <td></td>}
             <td><button class="btn btn-default btn-xs" onClick={() => handleDelete(a._id)}>X</button></td> 
         </tr> 
         </tbody>

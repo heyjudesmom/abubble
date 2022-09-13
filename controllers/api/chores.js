@@ -30,9 +30,7 @@ async function deleteChore(req, res, next) {
 }
 
 async function updateChore(req, res) {
-    console.log("req.body:",req.body, req.params.id)
-    
-    const chore = await Chore.findByIdAndUpdate({'_id': req.params.id}, req.body);
+    const chore = await Chore.findByIdAndUpdate({_id: req.params.id}, req.body);
     const chores = await Chore.find({
         user: req.user._id
     });
