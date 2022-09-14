@@ -79,7 +79,7 @@ export default function App() {
         </nav>          
           <Routes>
             {/* Route components in here */}
-            <Route path='/' element={<DashboardPage tags={tags} user={user}/>} />
+            <Route path='/' element={<DashboardPage user={user} itemizeTags={itemizeTags}/> } />
             <Route path='/appointments' element={<AppointmentsPage tags={tags} itemizeTags={itemizeTags}/>} />
             <Route path='/chores' element={<ChoresPage tags={tags} itemizeTags={itemizeTags}/>} />
             <Route path='/todos' element={<TodosPage tags={tags} itemizeTags={itemizeTags}/>} />

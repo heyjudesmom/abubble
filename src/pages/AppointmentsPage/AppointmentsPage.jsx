@@ -1,4 +1,3 @@
-import "./AppointmentsPage.css";
 import NewAppointmentForm from "../../components/NewAppointmentForm/NewAppointmentForm";
 import AppointmentList from "../../components/AppointmentList/AppointmentList";
 import * as apptsAPI from '../../utilities/appointments-api';

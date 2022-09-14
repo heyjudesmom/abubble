@@ -6,7 +6,7 @@ import * as mealPlanAPI from '../../utilities/meal-plan-api';
 import * as choresAPI from '../../utilities/chores-api';
 import * as todosAPI from '../../utilities/todos-api';
 
-export default function DashboardPage({user}) {
+export default function DashboardPage({user, itemizeTags}) {
   //tags
   const [tags, setTags] = useState([]);
   const [sort, setSort] = useState(false)
@@ -52,9 +52,7 @@ const [appts, setAppts] = useState([]);
   }, []);
 
     const apptsArr = appts.map(function(a, idx) {
-      const tagIdArr = a.tags;
-      const tagObjs = tags.filter((t) => tagIdArr.includes(t._id))
-      const tagDivs = tagObjs.map((t, idx) => <button className="btn btn-xs"key={idx} style={{backgroundColor: `${t.color}`}} onClick={function(){alert('Clicked')}}>{t.text}</button>)
+      const itemTags = itemizeTags(a)
       let datestr = new Date(a.datetime).toLocaleString();
       a.datetime = datestr;      
       return (
@@ -62,7 +60,7 @@ const [appts, setAppts] = useState([]);
           <tr>
             <td>{a.datetime}</td>
             <td>{a.title}</td>
-            {tagDivs.length ? (<td>{tagDivs}</td>) : null}
+            {itemTags.length ? (<td>{itemTags}</td>) : null}
             {a.duration ? (<td>{a.duration} minutes</td>) : ""}
           </tr> 
         </tbody>
@@ -150,12 +148,10 @@ const [appts, setAppts] = useState([]);
       getChores();
     }, []);
 
-    const choresArr = chores.map(function(c, idx) {
-      const tagIdArr = c.tags;
-      const tagObjs = tags.filter((t) => tagIdArr.includes(t._id))
-      const tagDivs = tagObjs.map((t, idx) => <button className="btn btn-xs"key={idx} style={{backgroundColor: `${t.color}`}} onClick={function(){alert('Clicked')}}>{t.text}</button>)
+    const choresArr = chores.map(function(c) {
+      const itemTags = itemizeTags(c)
       return (
-          <div className="border border-secondary">{c.text} {tagDivs}</div> 
+          <div className="border border-secondary">{c.text} {itemTags}</div> 
         );
   })
 
@@ -170,12 +166,10 @@ const [appts, setAppts] = useState([]);
     getTodos();
   }, []);
   const todosArr = todos.map(function(t, idx) {
-      const tagIdArr = t.tags;
-      const tagObjs = tags.filter((t) => tagIdArr.includes(t._id));
-      const tagDivs = tagObjs.map((t, idx) => <button className="btn btn-xs"key={idx} style={{backgroundColor: `${t.color}`}} onClick={function(){alert('Clicked')}}>{t.text}</button>);
+    const itemTags = itemizeTags(t)
       return (
         <div className="border border-secondary">
-          <div>{t.text} {tagDivs}</div>
+          <div>{t.text} {itemTags}</div>
         </div> 
       );
 });
