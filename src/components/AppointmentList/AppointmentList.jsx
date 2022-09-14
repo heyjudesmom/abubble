@@ -1,4 +1,3 @@
-import './AppointmentList.css';
 import AppointmentItem from '../AppointmentItem/AppointmentItem';
 
 export default function AppointmentList({ appts, tags, handleDelete, itemizeTags}) {

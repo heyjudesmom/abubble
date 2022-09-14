@@ -6,7 +6,7 @@ import * as mealPlanAPI from '../../utilities/meal-plan-api';
 import * as choresAPI from '../../utilities/chores-api';
 import * as todosAPI from '../../utilities/todos-api';
 
-export default function DashboardPage({user, itemizeTags}) {
+export default function DashboardPage({user}) {
   //tags
   const [tags, setTags] = useState([]);
   const [sort, setSort] = useState(false)
@@ -52,7 +52,9 @@ const [appts, setAppts] = useState([]);
   }, []);
 
     const apptsArr = appts.map(function(a, idx) {
-      const itemTags = itemizeTags(a)
+      const tagIdArr = a.tags;
+      const tagObjs = tags.filter((t) => tagIdArr.includes(t._id))
+      const tagDivs = tagObjs.map((t, idx) => <button className="btn btn-xs"key={idx} style={{backgroundColor: `${t.color}`}}>{t.text}</button>)
       let datestr = new Date(a.datetime).toLocaleString();
       a.datetime = datestr;      
       return (
@@ -60,7 +62,7 @@ const [appts, setAppts] = useState([]);
           <tr>
             <td>{a.datetime}</td>
             <td>{a.title}</td>
-            {itemTags.length ? (<td>{itemTags}</td>) : null}
+            {tagDivs.length ? (<td>{tagDivs}</td>) : null}
             {a.duration ? (<td>{a.duration} minutes</td>) : ""}
           </tr> 
         </tbody>
@@ -148,10 +150,12 @@ const [appts, setAppts] = useState([]);
       getChores();
     }, []);
 
-    const choresArr = chores.map(function(c) {
-      const itemTags = itemizeTags(c)
+    const choresArr = chores.map(function(c, idx) {
+      const tagIdArr = c.tags;
+      const tagObjs = tags.filter((t) => tagIdArr.includes(t._id))
+      const tagDivs = tagObjs.map((t, idx) => <button className="btn btn-xs"key={idx} style={{backgroundColor: `${t.color}`}} >{t.text}</button>)
       return (
-          <div className="border border-secondary">{c.text} {itemTags}</div> 
+          <div className="border border-secondary">{c.text} {tagDivs}</div> 
         );
   })
 
@@ -166,10 +170,12 @@ const [appts, setAppts] = useState([]);
     getTodos();
   }, []);
   const todosArr = todos.map(function(t, idx) {
-    const itemTags = itemizeTags(t)
+      const tagIdArr = t.tags;
+      const tagObjs = tags.filter((t) => tagIdArr.includes(t._id));
+      const tagDivs = tagObjs.map((t, idx) => <button className="btn btn-xs"key={idx} style={{backgroundColor: `${t.color}`}}>{t.text}</button>);
       return (
         <div className="border border-secondary">
-          <div>{t.text} {itemTags}</div>
+          <div>{t.text} {tagDivs}</div>
         </div> 
       );
 });
