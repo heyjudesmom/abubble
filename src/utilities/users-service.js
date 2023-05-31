@@ -36,7 +36,7 @@ export function getToken() {
   if (!token) return null;
   // Obtain the payload of the token
   // so that we can check if it's expired
-  const payload = JSON.parse(atob(token.split('.')[1]));
+  const payload = JSON.parse(Buffer.from(token.split('.')[1]).toString('binary'));
   if (payload.exp < Date.now() / 1000) {
     localStorage.removeItem('token');
     return null;
@@ -46,5 +46,5 @@ export function getToken() {
 
 export function getUser() {
   const token = getToken();
-  return token ? JSON.parse(atob(token.split('.')[1])).user : null;
+  return token ? JSON.parse(Buffer.from(token.split('.')[1]).toString('binary')).user : null;
 }
