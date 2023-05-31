@@ -29,7 +29,7 @@ This is a family and lifestyle organizer where users can keep track of chores, m
 
 
 ## Getting Started
-[Click here ](https://abubble-organizer.herokuapp.com/) to go to abubble! 
+[Click here ](https://abubble.vercel.app/) to go to abubble! 
 
 [Click here ](https://trello.com/b/8udoXGyU/p4-abubble) to go to the Trello planning page. 
 
